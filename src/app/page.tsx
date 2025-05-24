@@ -77,26 +77,25 @@ export default function Home() {
   return (
     <div className="container mx-auto py-8 px-4 space-y-12">
       {/* Hero Section */}
-      <section className="text-center py-10 bg-card shadow-lg rounded-xl border">
-        <div className="relative w-full h-48 md:h-64 mb-6">
+      <section className="text-center bg-card shadow-lg rounded-xl border overflow-hidden">
+        <div className="relative w-full h-48 md:h-64">
           <Image
             src="/images/tornado/stlskyline.jpeg"
             alt="Dramatic view of a tornado near the St. Louis Arch"
             fill
             priority
             style={{ objectFit: 'cover' }}
-            className="rounded-t-xl"
           />
-           <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center rounded-t-xl">
-             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground">
-               {siteConfig.name}
-             </h1>
-             <p className="mt-4 text-lg md:text-xl text-primary-foreground/90 max-w-2xl">
-               {siteConfig.description}
-             </p>
+          <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground">
+              {siteConfig.name}
+            </h1>
+            <p className="mt-4 text-lg md:text-xl text-primary-foreground/90 max-w-2xl px-4">
+              {siteConfig.description}
+            </p>
           </div>
         </div>
-        <p className="mt-2 text-sm text-muted-foreground px-4">
+        <p className="py-4 text-sm text-muted-foreground px-4">
           Note: The Google Maps API key used in this demo is for illustrative purposes. For production, secure your API key and configure it via environment variables.
         </p>
       </section>
