@@ -1,9 +1,12 @@
+
 "use client";
 
 import type { ResourceLocation } from '@/types';
 import { siteConfig } from '@/config/site';
 import { APIProvider, Map, AdvancedMarker, Pin, InfoWindow } from '@vis.gl/react-google-maps';
 import { useState, useEffect } from 'react';
+import { Navigation } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface ResourceMapProps {
   resources: ResourceLocation[];
@@ -18,6 +21,17 @@ export function ResourceMap({ resources, selectedResourceId, onMarkerClick }: Re
   useEffect(() => {
     setMapReady(true); // Ensures map renders only on client
   }, []);
+
+  useEffect(() => {
+    // If a resource is selected from the directory, open its InfoWindow
+    if (selectedResourceId) {
+      setOpenInfoWindowMarkerId(selectedResourceId);
+    } else {
+      // If selectedResourceId is null (deselected from directory), close any open InfoWindow
+      // This line might be too aggressive if you want InfoWindows to stay open from map clicks
+      // setOpenInfoWindowMarkerId(null); 
+    }
+  }, [selectedResourceId]);
 
   const handleMarkerClick = (resource: ResourceLocation) => {
     setOpenInfoWindowMarkerId(resource.id);
@@ -41,6 +55,7 @@ export function ResourceMap({ resources, selectedResourceId, onMarkerClick }: Re
           gestureHandling={'greedy'}
           disableDefaultUI={true}
           mapId="stlReliefMap" // Optional: for Cloud-based map styling
+          onClick={() => setOpenInfoWindowMarkerId(null)} // Close infowindow on map click
         >
           {resources.map((resource) => (
             <AdvancedMarker
@@ -61,13 +76,25 @@ export function ResourceMap({ resources, selectedResourceId, onMarkerClick }: Re
             <InfoWindow
               position={selectedResource.coordinates}
               onCloseClick={() => setOpenInfoWindowMarkerId(null)}
-              minWidth={200}
+              minWidth={220}
+              pixelOffset={[0, -40]} // Adjust if Pin size changes
             >
-              <div className="p-1 text-sm">
+              <div className="p-1 text-sm space-y-1">
                 <h3 className="font-semibold text-base mb-1 text-primary">{selectedResource.organization}</h3>
                 <p className="text-muted-foreground text-xs mb-0.5">{selectedResource.address}</p>
-                <p className_alias="text-foreground">{selectedResource.description}</p>
+                <p className="text-foreground text-xs">{selectedResource.description}</p>
                 {selectedResource.notes && <p className="text-xs mt-1 text-accent">{selectedResource.notes}</p>}
+                <Button variant="outline" size="xs" asChild className="w-full mt-2">
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(selectedResource.address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center"
+                  >
+                    <Navigation className="h-3 w-3 mr-1.5" />
+                    Get Directions
+                  </a>
+                </Button>
               </div>
             </InfoWindow>
           )}
