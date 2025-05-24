@@ -90,13 +90,13 @@ export default function Home() {
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground">
               {siteConfig.name}
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-primary-foreground/90 max-w-2xl px-4">
+            {/* <p className="mt-4 text-lg md:text-xl text-primary-foreground/90 max-w-2xl px-4">
               {siteConfig.description}
-            </p>
+            </p> */}
           </div>
         </div>
         <p className="py-4 text-sm text-muted-foreground px-4">
-          Note: The Google Maps API key used in this demo is for illustrative purposes. For production, secure your API key and configure it via environment variables.
+        A dashboard for St. Louis tornado relief efforts, resources, and live updates.
         </p>
       </section>
 
