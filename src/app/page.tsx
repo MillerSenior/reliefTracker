@@ -1,20 +1,20 @@
-
 "use client";
 
-import { useState } from 'react';
-import { siteConfig } from '@/config/site';
-import { SectionTitle } from '@/components/shared/SectionTitle';
-import { ResourceMap } from '@/components/map/ResourceMap';
-import { ResourceDirectory } from '@/components/resource/ResourceDirectory';
-import { LiveUpdatesFeed } from '@/components/news/LiveUpdatesFeed';
 import { CommunityInputForm } from '@/components/forms/CommunityInputForm';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { TornadoGallery } from '@/components/gallery/TornadoGallery';
+import { ResourceMap } from '@/components/map/ResourceMap';
+import { LiveUpdatesFeed } from '@/components/news/LiveUpdatesFeed';
+import { ResourceDirectory } from '@/components/resource/ResourceDirectory';
+import { SectionTitle } from '@/components/shared/SectionTitle';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { resourceLocations } from '@/data/resources';
-import { MapPin, Newspaper, MessageSquareHeart, Link as LinkIcon, Users, Info, AlertTriangle, ExternalLink as ExternalLinkIcon, Mail, Phone, Building2 } from 'lucide-react';
-import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { siteConfig } from '@/config/site';
+import { resourceLocations } from '@/data/resources';
+import { AlertTriangle, Building2, ExternalLink as ExternalLinkIcon, Info, Link as LinkIcon, Mail, MapPin, MessageSquareHeart, Newspaper, Phone, Users } from 'lucide-react';
+import Image from 'next/image';
+import { useState } from 'react';
 
 interface KeyContact {
   organization: string;
@@ -80,12 +80,12 @@ export default function Home() {
       <section className="text-center py-10 bg-card shadow-lg rounded-xl border">
         <div className="relative w-full h-48 md:h-64 mb-6">
           <Image
-            src="https://placehold.co/1200x400.png"
-            alt="Community members working together to clear debris after a tornado"
-            layout="fill"
-            objectFit="cover"
+            src="/images/tornado/stlskyline.jpeg"
+            alt="Dramatic view of a tornado near the St. Louis Arch"
+            fill
+            priority
+            style={{ objectFit: 'cover' }}
             className="rounded-t-xl"
-            data-ai-hint="community debris"
           />
            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center rounded-t-xl">
              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground">
@@ -149,18 +149,46 @@ export default function Home() {
       {/* Live Updates Section */}
       <section id="updates" className="space-y-8">
         <SectionTitle title="Live Updates & Summaries" icon={Newspaper} />
-        <div className="my-6 p-4 border rounded-lg shadow-md bg-card">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="p-4 border rounded-lg shadow-md bg-card">
             <Image
-              src="https://placehold.co/800x450.png"
-              alt="Aerial view showing tornado damage and ongoing assessment efforts"
+              src="/images/tornado/damage.jpeg"
+              alt="Aerial view of tornado damage in St. Louis neighborhoods"
               width={800}
               height={450}
               className="rounded-md object-cover w-full"
-              data-ai-hint="aerial damage"
+              priority
             />
-            <p className="text-sm text-muted-foreground mt-2 text-center">Image depicting ongoing news coverage and damage assessment efforts.</p>
+            <p className="text-sm text-muted-foreground mt-2 text-center">St. Louis tornado recovery update on May 23 | ksdk.com</p>
+          </div>
+          <div className="p-4 border rounded-lg shadow-md bg-card">
+            <Image
+              src="/images/tornado/reliefeffort.jpeg"
+              alt="Community members and volunteers working together in relief efforts"
+              width={800}
+              height={450}
+              className="rounded-md object-cover w-full"
+            />
+            <p className="text-sm text-muted-foreground mt-2 text-center">Support St. Louis Tornado Relief | Gateway Region YMCA</p>
+          </div>
         </div>
         <LiveUpdatesFeed />
+      </section>
+
+      {/* Tornado Impact Gallery Section */}
+      <section id="gallery" className="space-y-8">
+        <SectionTitle title="Documenting the Impact" icon={Info} />
+        <Card className="p-6">
+          <CardHeader>
+            <CardTitle>Visual Documentation of Storm Impact & Recovery</CardTitle>
+            <CardDescription>
+              These images document both the devastating impact of the tornado and the inspiring community response in its aftermath.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <TornadoGallery />
+          </CardContent>
+        </Card>
       </section>
 
       {/* Key Relief Contacts Section */}
@@ -241,7 +269,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="space-y-3">
                     <Image
-                        src="https://placehold.co/600x338.png" 
+                        src="/images/tornado/manwithdog.jpeg" 
                         alt="Volunteers from World Central Kitchen serving meals to tornado victims"
                         width={600}
                         height={338}
@@ -249,8 +277,7 @@ export default function Home() {
                         data-ai-hint="kitchen volunteer"
                     />
                     <p className="text-sm text-muted-foreground">
-                        Organizations like World Central Kitchen and local restaurants are actively providing meals.
-                        Find more ways to help or donate through the links provided.
+                        World Central Kitchen in St. Louis after May tornado | STLPR
                     </p>
                 </CardContent>
             </Card>
