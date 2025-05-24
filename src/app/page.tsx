@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -33,11 +34,11 @@ export default function Home() {
         <div className="relative w-full h-48 md:h-64 mb-6">
           <Image 
             src="https://placehold.co/1200x400.png" 
-            alt="St. Louis skyline with a hopeful theme" 
+            alt="Community members collaborating for relief efforts" 
             layout="fill"
             objectFit="cover"
             className="rounded-t-xl"
-            data-ai-hint="skyline community"
+            data-ai-hint="relief effort community"
           />
            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center rounded-t-xl">
              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground">
