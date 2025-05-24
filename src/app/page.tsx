@@ -8,12 +8,58 @@ import { ResourceMap } from '@/components/map/ResourceMap';
 import { ResourceDirectory } from '@/components/resource/ResourceDirectory';
 import { LiveUpdatesFeed } from '@/components/news/LiveUpdatesFeed';
 import { CommunityInputForm } from '@/components/forms/CommunityInputForm';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { resourceLocations } from '@/data/resources';
-import { MapPin, Newspaper, MessageSquareHeart, Link as LinkIcon, Users, Info, AlertTriangle, ExternalLink as ExternalLinkIcon } from 'lucide-react';
+import { MapPin, Newspaper, MessageSquareHeart, Link as LinkIcon, Users, Info, AlertTriangle, ExternalLink as ExternalLinkIcon, Mail, Phone, Building2 } from 'lucide-react';
 import Image from 'next/image';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+interface KeyContact {
+  organization: string;
+  contactPerson?: string;
+  contactInfo: string;
+  contactType: 'email' | 'phone' | 'mixed';
+  role: string;
+  url?: string;
+}
+
+const keyContacts: KeyContact[] = [
+  {
+    organization: "City of St. Louis Office of Recovery",
+    contactPerson: "Gilberto Pinela",
+    contactInfo: "pinelag@stlouis-mo.gov",
+    contactType: 'email',
+    role: "Liaison for non-English-speaking residents and general recovery coordination."
+  },
+  {
+    organization: "Action St. Louis",
+    contactPerson: "Response Team",
+    contactInfo: "response@actionstl.org",
+    contactType: 'email',
+    role: "Coordinator for the People's Response Hub and volunteer efforts."
+  },
+  {
+    organization: "American Red Cross – Greater St. Louis Chapter",
+    contactInfo: "1-800-RED-CROSS (1-800-733-2767)",
+    contactType: 'phone',
+    role: "Provides emergency shelter, meals, health services, and emotional support."
+  },
+  {
+    organization: "St. Louis Area Agency on Aging",
+    contactInfo: "314-612-5918",
+    contactType: 'phone',
+    role: "Resources for older adults in St. Louis City."
+  },
+  {
+    organization: "Aging Ahead",
+    contactInfo: "1-800-243-6060",
+    contactType: 'phone',
+    role: "Resources for older adults in St. Louis, Franklin, Jefferson, and St. Charles counties.",
+    url: "https://www.agingahead.org/blog/st-louis-tornado-resource/"
+  }
+];
 
 export default function Home() {
   const [selectedResourceId, setSelectedResourceId] = useState<string | null>(null);
@@ -35,11 +81,11 @@ export default function Home() {
         <div className="relative w-full h-48 md:h-64 mb-6">
           <Image
             src="https://placehold.co/1200x400.png"
-            alt="Community members working together at a relief distribution point after a tornado"
+            alt="Community members working together to clear debris after a tornado"
             layout="fill"
             objectFit="cover"
             className="rounded-t-xl"
-            data-ai-hint="community relief"
+            data-ai-hint="community debris"
           />
            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center rounded-t-xl">
              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground">
@@ -106,35 +152,109 @@ export default function Home() {
         <div className="my-6 p-4 border rounded-lg shadow-md bg-card">
             <Image
               src="https://placehold.co/800x450.png"
-              alt="News crew reporting on tornado damage in St. Louis"
+              alt="Aerial view showing tornado damage and ongoing assessment efforts"
               width={800}
               height={450}
               className="rounded-md object-cover w-full"
-              data-ai-hint="news coverage tornado"
+              data-ai-hint="aerial damage"
             />
             <p className="text-sm text-muted-foreground mt-2 text-center">Image depicting ongoing news coverage and damage assessment efforts.</p>
         </div>
         <LiveUpdatesFeed />
       </section>
 
+      {/* Key Relief Contacts Section */}
+      <section id="key-contacts" className="space-y-8">
+        <SectionTitle title="Key Relief Contacts" icon={Users} />
+        <Card>
+          <CardHeader>
+            <CardTitle>Official Contacts & Coordinators</CardTitle>
+            <CardDescription>Reach out to these organizations for specific assistance or coordination efforts.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[30%]">Organization</TableHead>
+                  <TableHead className="w-[30%]">Contact</TableHead>
+                  <TableHead className="w-[40%]">Role / Notes</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {keyContacts.map((contact) => (
+                  <TableRow key={contact.organization}>
+                    <TableCell className="font-medium">
+                      <div className="flex items-center">
+                        <Building2 className="h-4 w-4 mr-2 text-primary shrink-0" />
+                        {contact.url ? (
+                          <a href={contact.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{contact.organization}</a>
+                        ) : (
+                          contact.organization
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      {contact.contactPerson && <p className="text-sm font-semibold">{contact.contactPerson}</p>}
+                      {contact.contactType === 'email' ? (
+                        <a href={`mailto:${contact.contactInfo}`} className="text-sm text-primary hover:underline flex items-center">
+                          <Mail className="h-3 w-3 mr-1.5" /> {contact.contactInfo}
+                        </a>
+                      ) : contact.contactType === 'phone' ? (
+                        <a href={`tel:${contact.contactInfo.replace(/\D/g, '')}`} className="text-sm text-primary hover:underline flex items-center">
+                           <Phone className="h-3 w-3 mr-1.5" /> {contact.contactInfo}
+                        </a>
+                      ) : (
+                        <span className="text-sm">{contact.contactInfo}</span>
+                      )}
+                    </TableCell>
+                    <TableCell className="text-sm text-muted-foreground">{contact.role}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      </section>
+
       {/* Support & Volunteer Links Section */}
       <section id="support" className="space-y-8">
         <SectionTitle title="Support & Get Involved" icon={MessageSquareHeart} />
-        <Card>
-          <CardHeader>
-            <CardTitle>Useful Links</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {supportLinks.map(link => (
-              <Button key={link.name} variant="outline" asChild className="justify-start text-left h-auto py-3">
-                <a href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                  <LinkIcon className="h-4 w-4 mr-2 shrink-0" />
-                  <span className="flex-1">{link.name}</span>
-                </a>
-              </Button>
-            ))}
-          </CardContent>
-        </Card>
+         <div className="grid gap-6 md:grid-cols-2">
+            <Card>
+              <CardHeader>
+                <CardTitle>Useful Links</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3">
+                {supportLinks.map(link => (
+                  <Button key={link.name} variant="outline" asChild className="justify-start text-left h-auto py-2.5">
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                      <LinkIcon className="h-4 w-4 mr-2 shrink-0" />
+                      <span className="flex-1">{link.name}</span>
+                    </a>
+                  </Button>
+                ))}
+              </CardContent>
+            </Card>
+             <Card>
+                <CardHeader>
+                    <CardTitle>Community Efforts</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                    <Image
+                        src="https://placehold.co/600x338.png" 
+                        alt="Volunteers from World Central Kitchen serving meals to tornado victims"
+                        width={600}
+                        height={338}
+                        className="rounded-md object-cover w-full"
+                        data-ai-hint="kitchen volunteer"
+                    />
+                    <p className="text-sm text-muted-foreground">
+                        Organizations like World Central Kitchen and local restaurants are actively providing meals.
+                        Find more ways to help or donate through the links provided.
+                    </p>
+                </CardContent>
+            </Card>
+        </div>
       </section>
 
       {/* Community Input Section */}
