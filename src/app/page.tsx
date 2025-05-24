@@ -10,8 +10,9 @@ import { LiveUpdatesFeed } from '@/components/news/LiveUpdatesFeed';
 import { CommunityInputForm } from '@/components/forms/CommunityInputForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { resourceLocations } from '@/data/resources';
-import { MapPin, Newspaper, MessageSquareHeart, Link as LinkIcon, Users, Info } from 'lucide-react';
+import { MapPin, Newspaper, MessageSquareHeart, Link as LinkIcon, Users, Info, AlertTriangle, ExternalLink as ExternalLinkIcon } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Home() {
@@ -32,13 +33,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="text-center py-10 bg-card shadow-lg rounded-xl border">
         <div className="relative w-full h-48 md:h-64 mb-6">
-          <Image 
-            src="https://placehold.co/1200x400.png" 
-            alt="Community members collaborating for relief efforts" 
+          <Image
+            src="https://placehold.co/1200x400.png"
+            alt="Community members working together at a relief distribution point after a tornado"
             layout="fill"
             objectFit="cover"
             className="rounded-t-xl"
-            data-ai-hint="relief effort community"
+            data-ai-hint="community relief"
           />
            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center rounded-t-xl">
              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground">
@@ -54,21 +55,46 @@ export default function Home() {
         </p>
       </section>
 
+      {/* FEMA Alert Section */}
+      <section id="fema-alert" className="space-y-4">
+        <Alert variant="destructive" className="shadow-lg">
+          <AlertTriangle className="h-5 w-5" />
+          <AlertTitle className="text-lg font-semibold">Urgent: FEMA Assistance Available</AlertTitle>
+          <AlertDescription className="space-y-2 mt-1">
+            <p>If you were affected by the recent St. Louis tornado, FEMA assistance may be available. It is crucial to register as soon as possible.</p>
+            <p>You can apply for assistance in the following ways:</p>
+            <ul className="list-disc list-inside space-y-1 pl-2">
+              <li>Online at <a href="https://www.DisasterAssistance.gov" target="_blank" rel="noopener noreferrer" className="underline hover:text-destructive-foreground/80 font-medium">DisasterAssistance.gov</a></li>
+              <li>By calling FEMA at <strong className="font-semibold">1-800-621-FEMA (1-800-621-3362)</strong>.</li>
+              <li>For TTY users: <strong className="font-semibold">1-800-462-7585</strong>.</li>
+              <li>If you use a relay service, such as video relay service (VRS), captioned telephone service or others, give FEMA the number for that service.</li>
+            </ul>
+            <p className="mt-2">Have your Social Security number, household income, contact information, insurance details, and bank account information ready when you apply.</p>
+            <Button asChild variant="outline" size="sm" className="mt-3 border-destructive-foreground/50 text-destructive-foreground hover:bg-destructive-foreground/10">
+              <a href="https://www.fema.gov/disaster/how-to-apply" target="_blank" rel="noopener noreferrer">
+                Learn More About Applying
+                <ExternalLinkIcon className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+          </AlertDescription>
+        </Alert>
+      </section>
+
       {/* Resources Section */}
       <section id="resources" className="space-y-8">
         <SectionTitle title="Find Resources" icon={MapPin} />
         <div className="grid md:grid-cols-3 gap-8 min-h-[600px] md:min-h-[700px]">
           <div className="md:col-span-2 h-full">
-            <ResourceMap 
-              resources={resourceLocations} 
+            <ResourceMap
+              resources={resourceLocations}
               selectedResourceId={selectedResourceId}
               onMarkerClick={handleResourceSelect}
             />
           </div>
           <div className="md:col-span-1 h-full flex flex-col">
-            <ResourceDirectory 
-              onResourceSelect={handleResourceSelect} 
-              selectedResourceId={selectedResourceId} 
+            <ResourceDirectory
+              onResourceSelect={handleResourceSelect}
+              selectedResourceId={selectedResourceId}
             />
           </div>
         </div>
@@ -77,6 +103,17 @@ export default function Home() {
       {/* Live Updates Section */}
       <section id="updates" className="space-y-8">
         <SectionTitle title="Live Updates & Summaries" icon={Newspaper} />
+        <div className="my-6 p-4 border rounded-lg shadow-md bg-card">
+            <Image
+              src="https://placehold.co/800x450.png"
+              alt="News crew reporting on tornado damage in St. Louis"
+              width={800}
+              height={450}
+              className="rounded-md object-cover w-full"
+              data-ai-hint="news coverage tornado"
+            />
+            <p className="text-sm text-muted-foreground mt-2 text-center">Image depicting ongoing news coverage and damage assessment efforts.</p>
+        </div>
         <LiveUpdatesFeed />
       </section>
 
