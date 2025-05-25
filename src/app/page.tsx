@@ -286,17 +286,23 @@ export default function Home() {
       {/* Support & Volunteer Links Section */}
       <section id="support" className="space-y-8">
         <SectionTitle title="Support & Get Involved" icon={MessageSquareHeart} />
-         <div className="grid gap-6 md:grid-cols-2">
+         <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
             <Card>
               <CardHeader>
                 <CardTitle>Useful Links</CardTitle>
               </CardHeader>
-              <CardContent className="grid gap-3">
+              <CardContent className="grid gap-4">
                 {supportLinks.map(link => (
-                  <Button key={link.name} variant="outline" asChild className="justify-start text-left h-auto py-2.5">
-                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                  <Button 
+                    key={link.name} 
+                    variant="outline" 
+                    asChild 
+                    className="w-full justify-start h-auto py-4 overflow-hidden"
+                  >
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center w-full">
                       <LinkIcon className="h-4 w-4 mr-2 shrink-0" />
-                      <span className="flex-1">{link.name}</span>
+                      <span className="truncate flex-1">{link.name}</span>
+                      <ExternalLinkIcon className="h-4 w-4 ml-2 flex-shrink-0" />
                     </a>
                   </Button>
                 ))}
