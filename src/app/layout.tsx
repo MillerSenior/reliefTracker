@@ -1,3 +1,4 @@
+import { Analytics } from '@/components/analytics';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { Toaster } from "@/components/ui/toaster";
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
+        <Analytics />
         <Header />
         <main className="flex-1">
           {children}
