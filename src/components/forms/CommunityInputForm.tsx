@@ -1,18 +1,18 @@
 "use client";
 
-import { useForm, type SubmitHandler } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from '@/components/ui/textarea';
 import { resourceTypes } from '@/data/resources';
-import type { ResourceType } from '@/types';
 import { useToast } from '@/hooks/use-toast';
+import type { ResourceType } from '@/types';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Send } from 'lucide-react';
+import { useForm, type SubmitHandler } from 'react-hook-form';
+import { z } from 'zod';
 
 const formSchema = z.object({
   organizationName: z.string().min(2, { message: "Organization name must be at least 2 characters." }),
@@ -39,12 +39,30 @@ export function CommunityInputForm() {
   });
 
   const onSubmit: SubmitHandler<CommunityInputFormValues> = (data) => {
-    console.log("Community Input Data:", data);
-    // Here you would typically send the data to a backend API
+    // Format the email body
+    const emailSubject = `New Resource Report: ${data.organizationName}`;
+    const emailBody = `
+Resource Report Details:
+----------------------
+Organization Name: ${data.organizationName}
+Resource Type: ${data.resourceType}
+Address: ${data.address}
+Description: ${data.description}
+Contact Info: ${data.contactInfo || 'Not provided'}
+    `.trim();
+
+    // Create and encode the mailto URL
+    const mailtoUrl = `mailto:anthony@unlockedlabs.org?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open the mailto link
+    window.location.href = mailtoUrl;
+
+    // Show success toast
     toast({
-      title: "Submission Received!",
-      description: "Thank you for your contribution. It will be reviewed shortly.",
+      title: "Email Drafted!",
+      description: "An email has been prepared with your submission. Please review and send it.",
     });
+    
     form.reset();
   };
 
