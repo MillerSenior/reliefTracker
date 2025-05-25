@@ -75,7 +75,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="container mx-auto py-8 px-4 space-y-12">
+    <div className="container mx-auto py-8 px-4 space-y-12 overflow-x-hidden">
       {/* Hero Section */}
       <section className="text-center bg-card shadow-lg rounded-xl border overflow-hidden">
         <div className="relative w-full h-48 md:h-64">

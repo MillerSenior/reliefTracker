@@ -174,20 +174,31 @@ export function DonationDirectory() {
                 key={donation.name}
                 variant="outline"
                 asChild
-                className="w-full justify-start h-auto py-4"
+                className="w-full justify-start h-auto py-4 overflow-hidden"
               >
                 <a
                   href={donation.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-start gap-1"
+                  className="flex flex-col items-start gap-1 w-full"
                 >
-                  <span className="flex items-center">
-                    {donation.name}
-                    <ExternalLink className="h-4 w-4 ml-2" />
+                  <span className="flex items-center w-full">
+                    <span className="truncate">
+                      <span className="md:hidden">
+                        {donation.name === "Action St. Louis" && "Racial Justice Support"}
+                        {donation.name === "Better Family Life" && "Community Programs Support"}
+                        {donation.name === "St. Louis Community Foundation" && "Community Fund Support"}
+                        {donation.name === "United Way of Greater St. Louis" && "Basic Needs Support"}
+                        {donation.name === "Urban League of Metropolitan St. Louis" && "Relief Services Support"}
+                        {donation.name === "Gateway Early Childhood Alliance Fund" && "Childhood Care Support"}
+                        {donation.name === "Mission St. Louis" && "Poverty Relief Support"}
+                      </span>
+                      <span className="hidden md:inline">{donation.name}</span>
+                    </span>
+                    <ExternalLink className="h-4 w-4 ml-2 flex-shrink-0" />
                   </span>
                   {donation.description && (
-                    <span className="text-sm text-muted-foreground">{donation.description}</span>
+                    <span className="text-sm text-muted-foreground line-clamp-2 hidden md:block">{donation.description}</span>
                   )}
                 </a>
               </Button>
