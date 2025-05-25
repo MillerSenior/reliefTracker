@@ -3,6 +3,7 @@
 import { CommunityInputForm } from '@/components/forms/CommunityInputForm';
 import { ResourceMap } from '@/components/map/ResourceMap';
 import { LiveUpdatesFeed } from '@/components/news/LiveUpdatesFeed';
+import { DonationDirectory } from '@/components/resource/DonationDirectory';
 import { ResourceDirectory } from '@/components/resource/ResourceDirectory';
 import { SectionTitle } from '@/components/shared/SectionTitle';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -11,7 +12,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { siteConfig } from '@/config/site';
 import { resourceLocations } from '@/data/resources';
-import { AlertTriangle, Building2, ExternalLink as ExternalLinkIcon, Info, Link as LinkIcon, Mail, MapPin, MessageSquareHeart, Newspaper, Phone, Users } from 'lucide-react';
+import { AlertTriangle, Building2, ExternalLink as ExternalLinkIcon, Heart, Info, Link as LinkIcon, Mail, MapPin, MessageSquareHeart, Newspaper, Phone, Users } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -122,6 +123,12 @@ export default function Home() {
             </Button>
           </AlertDescription>
         </Alert>
+      </section>
+
+      {/* Donation & Relief Services Section */}
+      <section id="donate" className="space-y-8">
+        <SectionTitle title="Donate & Find Services" icon={Heart} />
+        <DonationDirectory />
       </section>
 
       {/* Resources Section */}
