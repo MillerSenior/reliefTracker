@@ -20,16 +20,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
-  icons: [],
-  appleWebApp: {
-    capable: false,
-    statusBarStyle: "default",
-    title: siteConfig.name
-  },
-  other: {
-    "msapplication-TileImage": "",
-    "apple-touch-icon": ""
-  }
 };
 
 export default function RootLayout({
