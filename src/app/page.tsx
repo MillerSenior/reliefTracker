@@ -1,7 +1,6 @@
 "use client";
 
 import { CommunityInputForm } from '@/components/forms/CommunityInputForm';
-import { TornadoGallery } from '@/components/gallery/TornadoGallery';
 import { ResourceMap } from '@/components/map/ResourceMap';
 import { LiveUpdatesFeed } from '@/components/news/LiveUpdatesFeed';
 import { ResourceDirectory } from '@/components/resource/ResourceDirectory';
@@ -149,16 +148,28 @@ export default function Home() {
       <section id="updates" className="space-y-8">
         <SectionTitle title="Live Updates & Summaries" icon={Newspaper} />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-4 border rounded-lg shadow-md bg-card">
-            <Image
-              src="/images/tornado/damage.jpeg"
-              alt="Aerial view of tornado damage in St. Louis neighborhoods"
-              width={800}
-              height={450}
-              className="rounded-md object-cover w-full"
-              priority
-            />
-            <p className="text-sm text-muted-foreground mt-2 text-center">St. Louis tornado recovery update on May 23 | ksdk.com</p>
+          <div className="p-4 border rounded-lg shadow-md bg-card space-y-4">
+            <div>
+              <Image
+                src="/images/tornado/damage.jpeg"
+                alt="Aerial view of tornado damage in St. Louis neighborhoods"
+                width={800}
+                height={450}
+                className="rounded-md object-cover w-full"
+                priority
+              />
+              <p className="text-sm text-muted-foreground mt-2 text-center">St. Louis tornado recovery update on May 23 | ksdk.com</p>
+            </div>
+            <div>
+              <Image
+                src="/images/tornado/tornado.jpeg"
+                alt="Tornado damage in St. Louis area"
+                width={800}
+                height={450}
+                className="rounded-md object-cover w-full"
+              />
+              <p className="text-sm text-muted-foreground mt-2 text-center">Tornado aftermath in St. Louis region</p>
+            </div>
           </div>
           <div className="p-4 border rounded-lg shadow-md bg-card">
             <Image
@@ -185,7 +196,28 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <TornadoGallery />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <Image
+                  src="/images/tornado/familystrong.jpeg"
+                  alt="Local family working together after tornado"
+                  width={600}
+                  height={400}
+                  className="rounded-md object-cover w-full"
+                />
+                <p className="text-sm text-muted-foreground mt-2 text-center">Local familiy standing and working together to rebuild after tornado</p>
+              </div>
+              <div>
+                <Image
+                  src="/images/tornado/unityimg.jpeg"
+                  alt="Community members helping with cleanup"
+                  width={600}
+                  height={400}
+                  className="rounded-md object-cover w-full"
+                />
+                <p className="text-sm text-muted-foreground mt-2 text-center">Alex Cadigan, of Affton, left, helps Sam Campbell haul a large tree limb in north St. Louis on Saturday — the day after an EF3 tornado ripped through central and northern St. Louis</p>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </section>

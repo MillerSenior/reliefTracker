@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "STL Relief Tracker",
+  name: "May 2025 Tornado Relief Directory-STL",
   description: "A dashboard for St. Louis tornado relief efforts, resources, and live updates.",
   googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || (() => {
     throw new Error('NEXT_PUBLIC_GOOGLE_MAPS_API_KEY environment variable is not set');
