@@ -1,9 +1,8 @@
-
-import type { ResourceLocation } from '@/types';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Navigation } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import type { ResourceLocation } from '@/types';
+import { Map } from 'lucide-react';
 
 interface ResourceCardProps {
   resource: ResourceLocation;
@@ -33,16 +32,15 @@ export function ResourceCard({ resource, isSelected, onClick }: ResourceCardProp
         {resource.notes && <p className="text-xs mt-2 text-accent">{resource.notes}</p>}
       </CardContent>
       <CardFooter className="pt-2 pb-4">
-        <Button variant="outline" size="sm" asChild className="w-full">
+        <Button variant="link" asChild className="p-0 h-auto">
           <a
             href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(resource.address)}`}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()} // Prevent card's main onClick if it exists
-            className="flex items-center justify-center"
+            className="flex items-center"
           >
-            <Navigation className="h-4 w-4 mr-2" />
-            Get Directions
+            Get Directions <Map className="h-4 w-4 ml-1" />
           </a>
         </Button>
       </CardFooter>

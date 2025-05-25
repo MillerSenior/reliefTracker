@@ -229,51 +229,52 @@ export default function Home() {
         </Card>
       </section>
 
-      {/* Key Relief Contacts Section */}
-      <section id="key-contacts" className="space-y-8">
-        <SectionTitle title="Key Relief Contacts" icon={Users} />
+      {/* Official Contacts Section */}
+      <section id="contacts" className="space-y-8">
+        <SectionTitle title="Official Contacts & Coordinators" icon={Building2} />
         <Card>
           <CardHeader>
-            <CardTitle>Official Contacts & Coordinators</CardTitle>
-            <CardDescription>Reach out to these organizations for specific assistance or coordination efforts.</CardDescription>
+            <CardTitle>Key Contacts</CardTitle>
+            <CardDescription>Official coordinators and support contacts for tornado relief efforts.</CardDescription>
           </CardHeader>
           <CardContent>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[30%]">Organization</TableHead>
-                  <TableHead className="w-[30%]">Contact</TableHead>
-                  <TableHead className="w-[40%]">Role / Notes</TableHead>
+                  <TableHead>Organization</TableHead>
+                  <TableHead>Contact</TableHead>
+                  <TableHead className="hidden md:table-cell">Role</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {keyContacts.map((contact) => (
                   <TableRow key={contact.organization}>
                     <TableCell className="font-medium">
-                      <div className="flex items-center">
-                        <Building2 className="h-4 w-4 mr-2 text-primary shrink-0" />
-                        {contact.url ? (
-                          <a href={contact.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{contact.organization}</a>
-                        ) : (
-                          contact.organization
-                        )}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      {contact.contactPerson && <p className="text-sm font-semibold">{contact.contactPerson}</p>}
-                      {contact.contactType === 'email' ? (
-                        <a href={`:${contact.contactInfo}`} className="text-sm text-primary hover:underline flex items-center">
-                          <Mail className="h-3 w-3 mr-1.5" /> {contact.contactInfo}
-                        </a>
-                      ) : contact.contactType === 'phone' ? (
-                        <a href={`tel:${contact.contactInfo.replace(/\D/g, '')}`} className="text-sm text-primary hover:underline flex items-center">
-                           <Phone className="h-3 w-3 mr-1.5" /> {contact.contactInfo}
-                        </a>
-                      ) : (
-                        <span className="text-sm">{contact.contactInfo}</span>
+                      {contact.organization}
+                      {contact.contactPerson && (
+                        <div className="text-sm text-muted-foreground">{contact.contactPerson}</div>
                       )}
                     </TableCell>
-                    <TableCell className="text-sm text-muted-foreground">{contact.role}</TableCell>
+                    <TableCell>
+                      {contact.contactType === 'email' ? (
+                        <Button variant="link" asChild className="p-0 h-auto">
+                          <a href={`mailto:${contact.contactInfo}`} className="flex items-center">
+                            <Mail className="h-4 w-4 mr-2" />
+                            {contact.contactInfo}
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button variant="link" asChild className="p-0 h-auto">
+                          <a href={`tel:${contact.contactInfo.replace(/[^\d+]/g, '')}`} className="flex items-center">
+                            <Phone className="h-4 w-4 mr-2" />
+                            {contact.contactInfo}
+                          </a>
+                        </Button>
+                      )}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell text-muted-foreground">
+                      {contact.role}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ExternalLink, Heart, Home, Truck, Wifi } from 'lucide-react';
+import { ExternalLink, Heart, Home, Map, Truck, Wifi } from 'lucide-react';
 
 interface DonationLink {
   name: string;
@@ -136,6 +136,10 @@ const shelters: ServiceLocation[] = [
   }
 ];
 
+const getGoogleMapsUrl = (address: string) => {
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+};
+
 export function DonationDirectory() {
   return (
     <Tabs defaultValue="donate" className="w-full">
@@ -204,13 +208,22 @@ export function DonationDirectory() {
                 <h3 className="font-semibold">{location.name}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{location.address}</p>
                 {location.info && <p className="text-sm mt-2">{location.info}</p>}
-                {location.url && (
-                  <Button variant="link" asChild className="p-0 h-auto mt-2">
-                    <a href={location.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                      Learn More <ExternalLink className="h-4 w-4 ml-1" />
-                    </a>
-                  </Button>
-                )}
+                <div className="flex gap-2 mt-2">
+                  {location.url && (
+                    <Button variant="link" asChild className="p-0 h-auto">
+                      <a href={location.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        Learn More <ExternalLink className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                  )}
+                  {location.address && (
+                    <Button variant="link" asChild className="p-0 h-auto">
+                      <a href={getGoogleMapsUrl(location.address)} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        Get Directions <Map className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
               </div>
             ))}
           </CardContent>
@@ -229,13 +242,22 @@ export function DonationDirectory() {
                 <h3 className="font-semibold">{shelter.name}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{shelter.address}</p>
                 {shelter.info && <p className="text-sm mt-2">{shelter.info}</p>}
-                {shelter.url && (
-                  <Button variant="link" asChild className="p-0 h-auto mt-2">
-                    <a href={shelter.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                      Learn More <ExternalLink className="h-4 w-4 ml-1" />
-                    </a>
-                  </Button>
-                )}
+                <div className="flex gap-2 mt-2">
+                  {shelter.url && (
+                    <Button variant="link" asChild className="p-0 h-auto">
+                      <a href={shelter.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        Learn More <ExternalLink className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                  )}
+                  {shelter.address && shelter.address !== "Contact for location" && (
+                    <Button variant="link" asChild className="p-0 h-auto">
+                      <a href={getGoogleMapsUrl(shelter.address)} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        Get Directions <Map className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
               </div>
             ))}
           </CardContent>
@@ -254,6 +276,13 @@ export function DonationDirectory() {
                 <h3 className="font-semibold">{hotspot.name}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{hotspot.address}</p>
                 {hotspot.info && <p className="text-sm mt-2">{hotspot.info}</p>}
+                {hotspot.address && (
+                  <Button variant="link" asChild className="p-0 h-auto mt-2">
+                    <a href={getGoogleMapsUrl(hotspot.address)} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                      Get Directions <Map className="h-4 w-4 ml-1" />
+                    </a>
+                  </Button>
+                )}
               </div>
             ))}
           </CardContent>
