@@ -1,10 +1,10 @@
-import type {Metadata} from 'next';
+import { Footer } from '@/components/layout/Footer';
+import { Header } from '@/components/layout/Header';
+import { Toaster } from "@/components/ui/toaster";
+import { siteConfig } from '@/config/site';
+import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google'; // Assuming Geist is preferred as per guidelines. Changed from Inter to Geist.
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster";
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { siteConfig } from '@/config/site';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -19,6 +19,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
+  icons: [],
+  appleWebApp: {
+    capable: false,
+    statusBarStyle: "default",
+    title: siteConfig.name
+  },
+  other: {
+    "msapplication-TileImage": "",
+    "apple-touch-icon": ""
+  }
 };
 
 export default function RootLayout({

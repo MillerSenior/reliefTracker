@@ -255,7 +255,7 @@ export default function Home() {
                     <TableCell>
                       {contact.contactPerson && <p className="text-sm font-semibold">{contact.contactPerson}</p>}
                       {contact.contactType === 'email' ? (
-                        <a href={`mailto:${contact.contactInfo}`} className="text-sm text-primary hover:underline flex items-center">
+                        <a href={`:${contact.contactInfo}`} className="text-sm text-primary hover:underline flex items-center">
                           <Mail className="h-3 w-3 mr-1.5" /> {contact.contactInfo}
                         </a>
                       ) : contact.contactType === 'phone' ? (

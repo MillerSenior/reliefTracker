@@ -57,8 +57,25 @@ const nextConfig: NextConfig = {
         minimize: true,
       };
     }
+
+    // Remove Firebase Studio icon and development features
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@firebase/studio-icon': false,
+        '@firebase/studio': false,
+        '@firebase/studio-shared': false
+      };
+    }
     
     return config;
+  },
+  // Disable PWA features
+  pwa: false,
+  // Disable Firebase Studio development features
+  devIndicators: {
+    buildActivity: false,
+    buildActivityPosition: 'bottom-right',
   },
 };
 

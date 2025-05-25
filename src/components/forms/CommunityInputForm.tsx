@@ -52,7 +52,7 @@ Contact Info: ${data.contactInfo || 'Not provided'}
     `.trim();
 
     // Create and encode the mailto URL
-    const mailtoUrl = `mailto:anthony@unlockedlabs.org?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoUrl = `mailto:anthony.millersr82@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     
     // Open the mailto link
     window.location.href = mailtoUrl;
