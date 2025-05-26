@@ -202,40 +202,42 @@ const getGoogleMapsUrl = (address: string) => {
 export function DonationDirectory() {
   return (
     <Tabs defaultValue="donate" className="w-full">
-      <TabsList className="grid w-full grid-cols-8">
-        <TabsTrigger value="donate">
-          <Heart className="h-4 w-4 mr-2" />
-          Donate
-        </TabsTrigger>
-        <TabsTrigger value="supplies">
-          <Truck className="h-4 w-4 mr-2" />
-          Supplies
-        </TabsTrigger>
-        <TabsTrigger value="shelter">
-          <Home className="h-4 w-4 mr-2" />
-          Shelter
-        </TabsTrigger>
-        <TabsTrigger value="hotspots">
-          <Wifi className="h-4 w-4 mr-2" />
-          Hotspots
-        </TabsTrigger>
-        <TabsTrigger value="food">
-          <Utensils className="h-4 w-4 mr-2" />
-          Food
-        </TabsTrigger>
-        <TabsTrigger value="medical">
-          <Pill className="h-4 w-4 mr-2" />
-          Medical
-        </TabsTrigger>
-        <TabsTrigger value="transport">
-          <Bus className="h-4 w-4 mr-2" />
-          Transport
-        </TabsTrigger>
-        <TabsTrigger value="storage">
-          <Archive className="h-4 w-4 mr-2" />
-          Storage
-        </TabsTrigger>
-      </TabsList>
+      <div className="relative w-full overflow-x-auto pb-2 md:overflow-x-visible">
+        <TabsList className="inline-flex w-max md:w-full md:grid md:grid-cols-8">
+          <TabsTrigger value="donate">
+            <Heart className="h-4 w-4 mr-2" />
+            Donate
+          </TabsTrigger>
+          <TabsTrigger value="supplies">
+            <Truck className="h-4 w-4 mr-2" />
+            Supplies
+          </TabsTrigger>
+          <TabsTrigger value="shelter">
+            <Home className="h-4 w-4 mr-2" />
+            Shelter
+          </TabsTrigger>
+          <TabsTrigger value="hotspots">
+            <Wifi className="h-4 w-4 mr-2" />
+            Hotspots
+          </TabsTrigger>
+          <TabsTrigger value="food">
+            <Utensils className="h-4 w-4 mr-2" />
+            Food
+          </TabsTrigger>
+          <TabsTrigger value="medical">
+            <Pill className="h-4 w-4 mr-2" />
+            Medical
+          </TabsTrigger>
+          <TabsTrigger value="transport">
+            <Bus className="h-4 w-4 mr-2" />
+            Transport
+          </TabsTrigger>
+          <TabsTrigger value="storage">
+            <Archive className="h-4 w-4 mr-2" />
+            Storage
+          </TabsTrigger>
+        </TabsList>
+      </div>
 
       <TabsContent value="donate" className="mt-4">
         <Card>
