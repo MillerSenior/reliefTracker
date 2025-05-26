@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ExternalLink, Heart, Home, Map, Truck, Wifi } from 'lucide-react';
+import { Archive, Bus, ExternalLink, Heart, Home, Map, Pill, Truck, Utensils, Wifi } from 'lucide-react';
 
 interface DonationLink {
   name: string;
@@ -15,6 +15,7 @@ interface ServiceLocation {
   info?: string;
   phone?: string;
   url?: string;
+  notes?: string;
 }
 
 const cashDonations: DonationLink[] = [
@@ -136,6 +137,64 @@ const shelters: ServiceLocation[] = [
   }
 ];
 
+const foodServices: ServiceLocation[] = [
+  {
+    name: "SNAP Benefits Application",
+    url: "https://mydss.mo.gov",
+    info: "Apply for or replace lost SNAP benefits",
+  },
+  {
+    name: "Food Banks Directory",
+    url: "https://feedingmissouri.org",
+    info: "Find food banks near you"
+  },
+  {
+    name: "World Central Kitchen - Belle Glade",
+    address: "Belle Glade Ave",
+    info: "Hot meals served daily"
+  },
+  {
+    name: "Mercy Chefs - Natural Bridge",
+    address: "Natural Bridge Ave",
+    info: "Meal distribution center"
+  }
+];
+
+const medicalServices: ServiceLocation[] = [
+  {
+    name: "Prescription Replacement",
+    info: "American Red Cross assistance for lost medications",
+    url: "tel:1-800-RED-CROSS"
+  },
+  {
+    name: "Missouri Board of Pharmacy",
+    info: "Emergency prescription medication assistance",
+    url: "https://pr.mo.gov/pharmacists"
+  }
+];
+
+const transportationServices: ServiceLocation[] = [
+  {
+    name: "Shelter Transportation - Ville Location",
+    address: "4447 Natural Bridge Ave",
+    info: "Daily pickup at 8:00 PM from Save A Lot parking lot"
+  },
+  {
+    name: "Shelter Transportation - Academy Sherman",
+    address: "5200 Cates Ave",
+    info: "Daily pickup at 8:00 PM"
+  }
+];
+
+const storageServices: ServiceLocation[] = [
+  {
+    name: "U-Haul Storage",
+    info: "30 days free self-storage and U-Box container usage",
+    url: "https://tinyurl.com/Uhaul-tornado-recovery",
+    notes: "Call 314-766-4013 for details. Delivery/pickup fees not included."
+  }
+];
+
 const getGoogleMapsUrl = (address: string) => {
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
 };
@@ -143,7 +202,7 @@ const getGoogleMapsUrl = (address: string) => {
 export function DonationDirectory() {
   return (
     <Tabs defaultValue="donate" className="w-full">
-      <TabsList className="grid w-full grid-cols-4">
+      <TabsList className="grid w-full grid-cols-8">
         <TabsTrigger value="donate">
           <Heart className="h-4 w-4 mr-2" />
           Donate
@@ -159,6 +218,22 @@ export function DonationDirectory() {
         <TabsTrigger value="hotspots">
           <Wifi className="h-4 w-4 mr-2" />
           Hotspots
+        </TabsTrigger>
+        <TabsTrigger value="food">
+          <Utensils className="h-4 w-4 mr-2" />
+          Food
+        </TabsTrigger>
+        <TabsTrigger value="medical">
+          <Pill className="h-4 w-4 mr-2" />
+          Medical
+        </TabsTrigger>
+        <TabsTrigger value="transport">
+          <Bus className="h-4 w-4 mr-2" />
+          Transport
+        </TabsTrigger>
+        <TabsTrigger value="storage">
+          <Archive className="h-4 w-4 mr-2" />
+          Storage
         </TabsTrigger>
       </TabsList>
 
@@ -294,6 +369,121 @@ export function DonationDirectory() {
                     </a>
                   </Button>
                 )}
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </TabsContent>
+
+      <TabsContent value="food" className="mt-4">
+        <Card>
+          <CardHeader>
+            <CardTitle>Food Assistance Services</CardTitle>
+            <CardDescription>Food banks, meal services, and SNAP benefits assistance.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-4">
+            {foodServices.map((service) => (
+              <div key={service.name} className="border rounded-lg p-4">
+                <h3 className="font-semibold">{service.name}</h3>
+                {service.address && <p className="text-sm text-muted-foreground mt-1">{service.address}</p>}
+                {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                <div className="flex gap-2 mt-2">
+                  {service.url && (
+                    <Button variant="link" asChild className="p-0 h-auto">
+                      <a href={service.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        Learn More <ExternalLink className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                  )}
+                  {service.address && (
+                    <Button variant="link" asChild className="p-0 h-auto">
+                      <a href={getGoogleMapsUrl(service.address)} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        Get Directions <Map className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </TabsContent>
+
+      <TabsContent value="medical" className="mt-4">
+        <Card>
+          <CardHeader>
+            <CardTitle>Medical & Prescription Services</CardTitle>
+            <CardDescription>Assistance with medications and prescriptions.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-4">
+            {medicalServices.map((service) => (
+              <div key={service.name} className="border rounded-lg p-4">
+                <h3 className="font-semibold">{service.name}</h3>
+                {service.address && <p className="text-sm text-muted-foreground mt-1">{service.address}</p>}
+                {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                <div className="flex gap-2 mt-2">
+                  {service.url && (
+                    <Button variant="link" asChild className="p-0 h-auto">
+                      <a href={service.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        Learn More <ExternalLink className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </TabsContent>
+
+      <TabsContent value="transport" className="mt-4">
+        <Card>
+          <CardHeader>
+            <CardTitle>Transportation Services</CardTitle>
+            <CardDescription>Free transportation to and from shelters.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-4">
+            {transportationServices.map((service) => (
+              <div key={service.name} className="border rounded-lg p-4">
+                <h3 className="font-semibold">{service.name}</h3>
+                {service.address && <p className="text-sm text-muted-foreground mt-1">{service.address}</p>}
+                {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                <div className="flex gap-2 mt-2">
+                  {service.address && (
+                    <Button variant="link" asChild className="p-0 h-auto">
+                      <a href={getGoogleMapsUrl(service.address)} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        Get Directions <Map className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </TabsContent>
+
+      <TabsContent value="storage" className="mt-4">
+        <Card>
+          <CardHeader>
+            <CardTitle>Storage Services</CardTitle>
+            <CardDescription>Free temporary storage solutions.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-4">
+            {storageServices.map((service) => (
+              <div key={service.name} className="border rounded-lg p-4">
+                <h3 className="font-semibold">{service.name}</h3>
+                {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                {service.notes && <p className="text-sm text-muted-foreground mt-2">{service.notes}</p>}
+                <div className="flex gap-2 mt-2">
+                  {service.url && (
+                    <Button variant="link" asChild className="p-0 h-auto">
+                      <a href={service.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        Learn More <ExternalLink className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
               </div>
             ))}
           </CardContent>

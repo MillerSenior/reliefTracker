@@ -1,5 +1,17 @@
 "use client";
 
+/**
+ * Main page component for the Tornado Relief Directory application.
+ * This component serves as the primary landing page and dashboard, integrating
+ * various features like maps, news feeds, and resource directories.
+ * 
+ * Key features:
+ * - Interactive resource map
+ * - Live news updates
+ * - Resource and donation directories
+ * - Community input form
+ */
+
 import { CommunityInputForm } from '@/components/forms/CommunityInputForm';
 import { ResourceMap } from '@/components/map/ResourceMap';
 import { LiveUpdatesFeed } from '@/components/news/LiveUpdatesFeed';
@@ -16,6 +28,7 @@ import { AlertTriangle, Building2, ExternalLink as ExternalLinkIcon, Heart, Info
 import Image from 'next/image';
 import { useState } from 'react';
 
+// Type definition for key emergency contacts
 interface KeyContact {
   organization: string;
   contactPerson?: string;
@@ -58,10 +71,28 @@ const keyContacts: KeyContact[] = [
     contactType: 'phone',
     role: "Resources for older adults in St. Louis, Franklin, Jefferson, and St. Charles counties.",
     url: "https://www.agingahead.org/blog/st-louis-tornado-resource/"
+  },
+  {
+    organization: "Crisis Counseling Helpline",
+    contactInfo: "1-800-985-5990",
+    contactType: 'phone',
+    role: "24/7 disaster distress helpline, includes Spanish and ASL options"
+  },
+  {
+    organization: "Community Action Agency",
+    contactInfo: "314-863-0015",
+    contactType: 'phone',
+    role: "General community assistance and resources"
   }
 ];
 
+/**
+ * Home component - Main page of the application
+ * Manages the state for selected resources and renders all major sections
+ * of the dashboard including the map, directories, and news feed.
+ */
 export default function Home() {
+  // State for tracking selected resource on the map
   const [selectedResourceId, setSelectedResourceId] = useState<string | null>(null);
 
   const handleResourceSelect = (resourceId: string | null) => {
@@ -72,11 +103,14 @@ export default function Home() {
     { name: "Mental Health Resources (St. Louis Magazine)", url: "https://www.stlmag.com/news/st-louis-tornado-relief-ways-to-help/" },
     { name: "Volunteer Opportunities (STLPR)", url: "https://www.stlpr.org/health-science-environment/2025-05-17/st-louis-tornado-recovery-help" },
     { name: "Official City Recovery Portal (STL Recovers)", url: "https://www.stlouis-mo.gov/tornado/index.cfm" },
+    { name: "Crisis Cleanup Hotline", url: "https://crisiscleanup.org", description: "Call (314) 230-8070 for volunteer cleanup assistance (through May 30, 2025)" },
+    { name: "United Way Disaster Intake Form", url: "https://uwgsl.tfaforms.net", description: "Request assistance with unmet needs (food, water, financial assistance, transportation)" },
+    { name: "SNAP Replacement Benefits", url: "https://formsportal.mo.gov", description: "Report loss and request replacement SNAP benefits within 10 days" }
   ];
 
   return (
     <div className="container mx-auto py-8 px-4 space-y-12 overflow-x-hidden">
-      {/* Hero Section */}
+      {/* Hero Section - Displays main banner and site description */}
       <section className="text-center bg-card shadow-lg rounded-xl border overflow-hidden">
         <div className="relative w-full h-48 md:h-64">
           <Image
@@ -100,7 +134,7 @@ export default function Home() {
         </p>
       </section>
 
-      {/* FEMA Alert Section */}
+      {/* FEMA Alert Section - Important emergency notifications */}
       <section id="fema-alert" className="space-y-4">
         <Alert variant="destructive" className="shadow-lg">
           <AlertTriangle className="h-5 w-5" />

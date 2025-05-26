@@ -1,5 +1,5 @@
 import type { ResourceLocation } from '@/types';
-import { Home, Package, Utensils, Sparkles, Building2, type LucideIcon, ShowerHead, PlugZap, Shirt } from 'lucide-react';
+import { Building2, Home, type LucideIcon, Package, PlugZap, Shirt, ShowerHead, Sparkles, Utensils } from 'lucide-react';
 
 // Helper function to assign icons based on type and description
 const getIcon = (type: ResourceLocation['type'], description: string): LucideIcon => {
@@ -98,6 +98,22 @@ export const resourceLocations: ResourceLocation[] = [
     notes: "Open Mon–Thurs: 5:15 a.m.–9 p.m.; Sat: 7 a.m.–4 p.m.; Sun: 8 a.m.–4 p.m.", 
     type: "Services", 
     coordinates: { lat: 38.6311, lng: -90.3895 } // Approx.
+  },
+  { 
+    id: "peter-paul",
+    organization: "Peter & Paul Community Services",
+    address: "2612 Wyoming Street, St. Louis, MO 63118",
+    description: "New overnight shelter location as of 5/24",
+    type: "Shelter",
+    coordinates: { lat: 38.5992, lng: -90.2226 } // Approx.
+  },
+  { 
+    id: "slpl-locations",
+    organization: "St. Louis Public Libraries",
+    description: "13 library locations offering rest, cooling, and recharging",
+    type: "Services",
+    notes: "Cabanne and Julia Davis locations temporarily closed for damage assessment",
+    url: "https://slpl.bibliocommons.com"
   }
 ].map(location => ({ ...location, icon: getIcon(location.type, location.description) }));
 
