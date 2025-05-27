@@ -6,6 +6,19 @@ interface AutoLinkifyProps {
   className?: string;
 }
 
+interface LinkAttributes {
+  href: string;
+  target?: string;
+  rel?: string;
+  className?: string;
+  [key: string]: any;
+}
+
+interface RenderProps {
+  attributes: LinkAttributes;
+  content: string;
+}
+
 // Custom function to format phone numbers for tel: protocol
 const formatPhoneNumber = (phone: string) => {
   // Remove all non-digit characters
@@ -36,7 +49,7 @@ const options = {
   },
   // Custom render function to handle different types of links
   render: {
-    url: ({ attributes, content }) => {
+    url: ({ attributes, content }: RenderProps) => {
       const { href, ...props } = attributes;
       // Check if it looks like a physical address
       if (content.match(addressPattern)) {
@@ -55,7 +68,7 @@ const options = {
       }
       return <a href={href} {...props}>{content}</a>;
     },
-    email: ({ attributes, content }) => {
+    email: ({ attributes, content }: RenderProps) => {
       return (
         <a 
           href={`mailto:${content}`}
@@ -66,7 +79,7 @@ const options = {
         </a>
       );
     },
-    phone: ({ content }) => {
+    phone: ({ content }: { content: string }) => {
       const formattedNumber = formatPhoneNumber(content);
       return (
         <a 

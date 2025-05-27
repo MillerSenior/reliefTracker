@@ -53,6 +53,12 @@ const nextConfig: NextConfig = {
     // Enable production optimizations even in development
     config.mode = 'production';
     
+    // Add handlebars loader configuration
+    config.module.rules.push({
+      test: /\.handlebars$/,
+      loader: 'handlebars-loader'
+    });
+    
     // Add terser for better minification
     if (!dev && !isServer) {
       config.optimization = {

@@ -143,11 +143,13 @@ const foodServices: ServiceLocation[] = [
     name: "SNAP Benefits Application",
     url: "https://mydss.mo.gov",
     info: "Apply for or replace lost SNAP benefits",
+    address: "Online service - no physical address"
   },
   {
     name: "Food Banks Directory",
     url: "https://feedingmissouri.org",
-    info: "Find food banks near you"
+    info: "Find food banks near you",
+    address: "Online directory - no physical address"
   },
   {
     name: "World Central Kitchen - Belle Glade",
@@ -165,12 +167,14 @@ const medicalServices: ServiceLocation[] = [
   {
     name: "Prescription Replacement",
     info: "American Red Cross assistance for lost medications",
-    url: "tel:1-800-RED-CROSS"
+    url: "tel:1-800-RED-CROSS",
+    address: "Call 1-800-RED-CROSS for assistance"
   },
   {
     name: "Missouri Board of Pharmacy",
     info: "Emergency prescription medication assistance",
-    url: "https://pr.mo.gov/pharmacists"
+    url: "https://pr.mo.gov/pharmacists",
+    address: "Online service - visit website for assistance"
   }
 ];
 
@@ -192,7 +196,8 @@ const storageServices: ServiceLocation[] = [
     name: "U-Haul Storage",
     info: "30 days free self-storage and U-Box container usage",
     url: "https://tinyurl.com/Uhaul-tornado-recovery",
-    notes: "Call 314-766-4013 for details. Delivery/pickup fees not included."
+    notes: "Call 314-766-4013 for details. Delivery/pickup fees not included.",
+    address: "Call 314-766-4013 for location details"
   }
 ];
 

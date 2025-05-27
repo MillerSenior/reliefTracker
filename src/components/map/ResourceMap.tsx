@@ -1,12 +1,11 @@
-
 "use client";
 
-import type { ResourceLocation } from '@/types';
-import { siteConfig } from '@/config/site';
-import { APIProvider, Map, AdvancedMarker, Pin, InfoWindow } from '@vis.gl/react-google-maps';
-import { useState, useEffect } from 'react';
-import { Navigation } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { siteConfig } from '@/config/site';
+import type { ResourceLocation } from '@/types';
+import { AdvancedMarker, APIProvider, InfoWindow, Map, Pin } from '@vis.gl/react-google-maps';
+import { Navigation } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 interface ResourceMapProps {
   resources: ResourceLocation[];
@@ -84,7 +83,7 @@ export function ResourceMap({ resources, selectedResourceId, onMarkerClick }: Re
                 <p className="text-muted-foreground text-xs mb-0.5">{selectedResource.address}</p>
                 <p className="text-foreground text-xs">{selectedResource.description}</p>
                 {selectedResource.notes && <p className="text-xs mt-1 text-accent">{selectedResource.notes}</p>}
-                <Button variant="outline" size="xs" asChild className="w-full mt-2">
+                <Button variant="outline" size="sm" asChild className="w-full mt-2">
                   <a
                     href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(selectedResource.address)}`}
                     target="_blank"
