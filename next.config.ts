@@ -39,7 +39,10 @@ const nextConfig: NextConfig = {
   // Experimental features for better performance
   experimental: {
     // Enable server actions
-    serverActions: true,
+    serverActions: {
+      allowedOrigins: ['*'],
+      bodySizeLimit: '2mb'
+    },
     // Enable optimistic updates
     optimisticClientCache: true,
     // Enable modern JavaScript features
