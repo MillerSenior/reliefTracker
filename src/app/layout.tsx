@@ -1,6 +1,8 @@
 import { Analytics } from '@/components/analytics';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
+import { MetaSettings } from '@/components/MetaSettings';
+import { RadixWrapper } from '@/components/RadixWrapper';
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from '@/config/site';
 import type { Metadata } from 'next';
@@ -32,11 +34,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <MetaSettings />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         <Analytics />
         <Header />
         <main className="flex-1">
-          {children}
+          <RadixWrapper>
+            {children}
+          </RadixWrapper>
         </main>
         <Footer />
         <Toaster />

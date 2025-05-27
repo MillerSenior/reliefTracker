@@ -15,8 +15,10 @@
 import { CommunityInputForm } from '@/components/forms/CommunityInputForm';
 import { ResourceMap } from '@/components/map/ResourceMap';
 import { LiveUpdatesFeed } from '@/components/news/LiveUpdatesFeed';
+import { AnnouncementsPanel } from '@/components/resource/AnnouncementsPanel';
 import { DonationDirectory } from '@/components/resource/DonationDirectory';
 import { ResourceDirectory } from '@/components/resource/ResourceDirectory';
+import { UrgentNeedsPanel } from '@/components/resource/UrgentNeedsPanel';
 import { SectionTitle } from '@/components/shared/SectionTitle';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
@@ -132,6 +134,25 @@ export default function Home() {
         <p className="py-4 text-sm text-muted-foreground px-4">
         A dashboard for St. Louis tornado relief efforts, resources, and live updates.
         </p>
+      </section>
+
+      {/* Emergency Alert Section */}
+      <section id="emergency-alert" className="space-y-4">
+        <Alert variant="destructive">
+          <AlertTriangle className="h-4 w-4" />
+          <AlertTitle>Emergency Response Active</AlertTitle>
+          <AlertDescription>
+            Tornado relief efforts are ongoing. If you need immediate assistance, call 911 or contact the emergency hotlines listed below.
+          </AlertDescription>
+        </Alert>
+      </section>
+
+      {/* Urgent Needs & Announcements Section */}
+      <section id="urgent-updates" className="space-y-8">
+        <div className="grid md:grid-cols-2 gap-8">
+          <UrgentNeedsPanel />
+          <AnnouncementsPanel />
+        </div>
       </section>
 
       {/* FEMA Alert Section - Important emergency notifications */}
