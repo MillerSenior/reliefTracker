@@ -38,7 +38,7 @@ export function ResourceMap({ resources, selectedResourceId, onMarkerClick }: Re
       onMarkerClick(resource.id);
     }
   };
-  
+
   const selectedResource = resources.find(r => r.id === openInfoWindowMarkerId);
 
   if (!mapReady) {
@@ -83,17 +83,19 @@ export function ResourceMap({ resources, selectedResourceId, onMarkerClick }: Re
                 <p className="text-muted-foreground text-xs mb-0.5">{selectedResource.address}</p>
                 <p className="text-foreground text-xs">{selectedResource.description}</p>
                 {selectedResource.notes && <p className="text-xs mt-1 text-accent">{selectedResource.notes}</p>}
-                <Button variant="outline" size="sm" asChild className="w-full mt-2">
-                  <a
-                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(selectedResource.address)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center"
-                  >
-                    <Navigation className="h-3 w-3 mr-1.5" />
-                    Get Directions
-                  </a>
-                </Button>
+                {selectedResource.address && (
+                  <Button variant="outline" size="sm" asChild className="w-full mt-2">
+                    <a
+                      href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(selectedResource.address)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center"
+                    >
+                      <Navigation className="h-3 w-3 mr-1.5" />
+                      Get Directions
+                    </a>
+                  </Button>
+                )}
               </div>
             </InfoWindow>
           )}

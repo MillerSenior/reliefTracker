@@ -13,12 +13,13 @@ export type ResourceType = 'Shelter' | 'Distribution Center' | 'Food' | 'Service
 export interface ResourceLocation {
   id: string;
   organization: string;
-  address: string;
+  address?: string;
   description: string;
   notes?: string;
   type: ResourceType;
   icon: LucideIcon;
-  coordinates: { lat: number; lng: number };
+  coordinates?: { lat: number; lng: number };
+  url?: string;
   contact?: {
     phone?: string;
     email?: string;

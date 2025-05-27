@@ -2,6 +2,14 @@ import type { Announcement } from '@/types';
 
 export const announcements: Announcement[] = [
   {
+    id: 'urban-league-distribution',
+    title: 'Urban League Distribution Event',
+    content: 'The Urban League of Metro St. Louis & partners are hosting our second large scale food, toiletries and resource distribution this Saturday from 12-3 at our headquarters for victims of the tornado. For donations, visit ulstl.com/donatenow or bring items to headquarters at 1408 North Kingshighway between 9-5 any workday.',
+    date: '2025-05-27T14:00:00Z',
+    url: 'ulstl.com/donatenow',
+    organization: 'Urban League of Metropolitan St. Louis'
+  },
+  {
     id: 'volunteer-support-notice',
     title: 'Volunteer Support Notice',
     content: 'Volunteer support has gone down quite a bit, please remember to go out when you can. There\'s a large amount of donation drop off\'s but not enough people distributing. Please let us know if you can help with deliveries of supplies to residents.',

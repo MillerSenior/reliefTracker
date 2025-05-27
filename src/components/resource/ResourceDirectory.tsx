@@ -20,10 +20,11 @@ export function ResourceDirectory({ onResourceSelect, selectedResourceId }: Reso
 
   const filteredResources = useMemo(() => {
     return resourceLocations.filter(resource => {
+      const searchTermLower = searchTerm.toLowerCase();
       const matchesSearch = 
-        resource.organization.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        resource.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        resource.description.toLowerCase().includes(searchTerm.toLowerCase());
+        (resource.organization?.toLowerCase() || '').includes(searchTermLower) ||
+        (resource.address?.toLowerCase() || '').includes(searchTermLower) ||
+        (resource.description?.toLowerCase() || '').includes(searchTermLower);
       const matchesType = selectedType === 'All' || resource.type === selectedType;
       return matchesSearch && matchesType;
     });

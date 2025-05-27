@@ -6,12 +6,15 @@ interface AutoLinkifyProps {
   className?: string;
 }
 
-// Define our own interface that matches what linkify-react expects
-interface LinkifyIR {
+// Define our own interfaces that match what linkify-react expects
+interface LinkAttributes {
+  href: string;
+  [attr: string]: any;
+}
+
+interface RenderProps {
   content: string;
-  attributes: {
-    [attr: string]: any;
-  };
+  attributes: LinkAttributes;
   tagName?: string;
   type?: string;
 }
@@ -46,8 +49,8 @@ const options = {
   },
   // Custom render function to handle different types of links
   render: {
-    url: (ir: LinkifyIR) => {
-      const { attributes, content } = ir;
+    url: (props: RenderProps) => {
+      const { attributes, content } = props;
       const href = attributes.href || '';
       // Check if it looks like a physical address
       if (content.match(addressPattern)) {
@@ -64,10 +67,10 @@ const options = {
           </a>
         );
       }
-      return <a href={href} {...attributes}>{content}</a>;
+      return <a {...attributes}>{content}</a>;
     },
-    email: (ir: LinkifyIR) => {
-      const { content } = ir;
+    email: (props: RenderProps) => {
+      const { content } = props;
       return (
         <a 
           href={`mailto:${content}`}
@@ -78,8 +81,8 @@ const options = {
         </a>
       );
     },
-    phone: (ir: LinkifyIR) => {
-      const { content } = ir;
+    phone: (props: RenderProps) => {
+      const { content } = props;
       const formattedNumber = formatPhoneNumber(content);
       return (
         <a 
@@ -100,8 +103,8 @@ const options = {
       {
         pattern: addressPattern,
         type: 'address',
-        render: (ir: LinkifyIR) => {
-          const { content } = ir;
+        render: (props: RenderProps) => {
+          const { content } = props;
           const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(content)}`;
           return (
             <a 
@@ -126,7 +129,7 @@ export function AutoLinkify({ children, className }: AutoLinkifyProps) {
 
   return (
     <div className={containerClass}>
-      <Linkify options={options}>
+      <Linkify options={options as any}>
         {children}
       </Linkify>
     </div>

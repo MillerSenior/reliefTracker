@@ -32,17 +32,19 @@ export function ResourceCard({ resource, isSelected, onClick }: ResourceCardProp
         {resource.notes && <p className="text-xs mt-2 text-accent">{resource.notes}</p>}
       </CardContent>
       <CardFooter className="pt-2 pb-4">
-        <Button variant="link" asChild className="p-0 h-auto">
-          <a
-            href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(resource.address)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()} // Prevent card's main onClick if it exists
-            className="flex items-center"
-          >
-            Get Directions <Map className="h-4 w-4 ml-1" />
-          </a>
-        </Button>
+        {resource.address && (
+          <Button variant="link" asChild className="p-0 h-auto">
+            <a
+              href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(resource.address)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()} // Prevent card's main onClick if it exists
+              className="flex items-center"
+            >
+              Get Directions <Map className="h-4 w-4 ml-1" />
+            </a>
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );

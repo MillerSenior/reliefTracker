@@ -2,10 +2,11 @@ import type { ResourceLocation, ResourceType } from '@/types';
 import { Building2, Bus, Home, type LucideIcon, Package, Phone, PlugZap, Scale, Shirt, ShowerHead, Sparkles, Stethoscope, Utensils } from 'lucide-react';
 
 // Helper function to assign icons based on type and description
-const getIcon = (type: ResourceLocation['type'], description: string): LucideIcon => {
-  if (description.toLowerCase().includes('shower')) return ShowerHead;
-  if (description.toLowerCase().includes('charging')) return PlugZap;
-  if (description.toLowerCase().includes('laundry')) return Shirt;
+const getIcon = (type: ResourceLocation['type'], description: string | undefined): LucideIcon => {
+  const desc = description?.toLowerCase() || '';
+  if (desc.includes('shower')) return ShowerHead;
+  if (desc.includes('charging')) return PlugZap;
+  if (desc.includes('laundry')) return Shirt;
 
   switch (type) {
     case 'Shelter': return Home;
@@ -22,7 +23,7 @@ const getIcon = (type: ResourceLocation['type'], description: string): LucideIco
 };
 
 // All resource locations combined
-export const resourceLocations = [
+export const resourceLocations: ResourceLocation[] = [
   // Original locations
   { 
     id: "urban-league", 
@@ -178,7 +179,7 @@ export const resourceLocations = [
     notes: "Pickup locations: Save A Lot parking lot 4447 Natural Bridge Road Ave, Academy Sherman Park Location 5200 Cates Ave",
     coordinates: { lat: 38.6667, lng: -90.2407 }
   }
-].map(location => ({ ...location, icon: getIcon(location.type as ResourceType, location.description) })) as ResourceLocation[];
+].map(location => ({ ...location, type: location.type as ResourceType, icon: getIcon(location.type as ResourceType, location.description) }));
 
 export const resourceTypes: ResourceLocation['type'][] = [
   'Shelter', 
