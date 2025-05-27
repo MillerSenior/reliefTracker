@@ -1,3 +1,4 @@
+import { AutoLinkify } from '@/components/ui/auto-linkify';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -294,8 +295,10 @@ export function DonationDirectory() {
             {supplyLocations.map((location) => (
               <div key={location.name} className="border rounded-lg p-4">
                 <h3 className="font-semibold">{location.name}</h3>
-                <p className="text-sm text-muted-foreground mt-1">{location.address}</p>
-                {location.info && <p className="text-sm mt-2">{location.info}</p>}
+                <AutoLinkify>
+                  <p className="text-sm text-muted-foreground mt-1">{location.address}</p>
+                  {location.info && <p className="text-sm mt-2">{location.info}</p>}
+                </AutoLinkify>
                 <div className="flex gap-2 mt-2">
                   {location.url && (
                     <Button variant="link" asChild className="p-0 h-auto">
@@ -328,8 +331,11 @@ export function DonationDirectory() {
             {shelters.map((shelter) => (
               <div key={shelter.name} className="border rounded-lg p-4">
                 <h3 className="font-semibold">{shelter.name}</h3>
-                <p className="text-sm text-muted-foreground mt-1">{shelter.address}</p>
-                {shelter.info && <p className="text-sm mt-2">{shelter.info}</p>}
+                <AutoLinkify>
+                  <p className="text-sm text-muted-foreground mt-1">{shelter.address}</p>
+                  {shelter.info && <p className="text-sm mt-2">{shelter.info}</p>}
+                  {shelter.notes && <p className="text-sm text-muted-foreground mt-2">{shelter.notes}</p>}
+                </AutoLinkify>
                 <div className="flex gap-2 mt-2">
                   {shelter.url && (
                     <Button variant="link" asChild className="p-0 h-auto">
@@ -387,8 +393,11 @@ export function DonationDirectory() {
             {foodServices.map((service) => (
               <div key={service.name} className="border rounded-lg p-4">
                 <h3 className="font-semibold">{service.name}</h3>
-                {service.address && <p className="text-sm text-muted-foreground mt-1">{service.address}</p>}
-                {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                <AutoLinkify>
+                  {service.address && <p className="text-sm text-muted-foreground mt-1">{service.address}</p>}
+                  {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                  {service.notes && <p className="text-sm text-muted-foreground mt-2">{service.notes}</p>}
+                </AutoLinkify>
                 <div className="flex gap-2 mt-2">
                   {service.url && (
                     <Button variant="link" asChild className="p-0 h-auto">
@@ -421,8 +430,11 @@ export function DonationDirectory() {
             {medicalServices.map((service) => (
               <div key={service.name} className="border rounded-lg p-4">
                 <h3 className="font-semibold">{service.name}</h3>
-                {service.address && <p className="text-sm text-muted-foreground mt-1">{service.address}</p>}
-                {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                <AutoLinkify>
+                  {service.address && <p className="text-sm text-muted-foreground mt-1">{service.address}</p>}
+                  {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                  {service.notes && <p className="text-sm text-muted-foreground mt-2">{service.notes}</p>}
+                </AutoLinkify>
                 <div className="flex gap-2 mt-2">
                   {service.url && (
                     <Button variant="link" asChild className="p-0 h-auto">
@@ -448,8 +460,11 @@ export function DonationDirectory() {
             {transportationServices.map((service) => (
               <div key={service.name} className="border rounded-lg p-4">
                 <h3 className="font-semibold">{service.name}</h3>
-                {service.address && <p className="text-sm text-muted-foreground mt-1">{service.address}</p>}
-                {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                <AutoLinkify>
+                  {service.address && <p className="text-sm text-muted-foreground mt-1">{service.address}</p>}
+                  {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                  {service.notes && <p className="text-sm text-muted-foreground mt-2">{service.notes}</p>}
+                </AutoLinkify>
                 <div className="flex gap-2 mt-2">
                   {service.address && (
                     <Button variant="link" asChild className="p-0 h-auto">
@@ -475,8 +490,10 @@ export function DonationDirectory() {
             {storageServices.map((service) => (
               <div key={service.name} className="border rounded-lg p-4">
                 <h3 className="font-semibold">{service.name}</h3>
-                {service.info && <p className="text-sm mt-2">{service.info}</p>}
-                {service.notes && <p className="text-sm text-muted-foreground mt-2">{service.notes}</p>}
+                <AutoLinkify>
+                  {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                  {service.notes && <p className="text-sm text-muted-foreground mt-2">{service.notes}</p>}
+                </AutoLinkify>
                 <div className="flex gap-2 mt-2">
                   {service.url && (
                     <Button variant="link" asChild className="p-0 h-auto">

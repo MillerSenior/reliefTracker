@@ -1,4 +1,5 @@
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { AutoLinkify } from '@/components/ui/auto-linkify';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { urgentNeeds } from '@/data/urgent-needs';
 import { AlertCircle, Package2, Users, Wrench } from 'lucide-react';
@@ -30,13 +31,15 @@ export function UrgentNeedsPanel() {
                   {need.type}
                 </AlertTitle>
                 <AlertDescription className="mt-2 space-y-2">
-                  <p>{need.description}</p>
-                  {need.location && (
-                    <p className="text-sm font-medium">Location: {need.location}</p>
-                  )}
-                  {need.contact && (
-                    <p className="text-sm font-medium">Contact: {need.contact}</p>
-                  )}
+                  <AutoLinkify>
+                    <p>{need.description}</p>
+                    {need.location && (
+                      <p className="text-sm font-medium">Location: {need.location}</p>
+                    )}
+                    {need.contact && (
+                      <p className="text-sm font-medium">Contact: {need.contact}</p>
+                    )}
+                  </AutoLinkify>
                 </AlertDescription>
               </Alert>
             );

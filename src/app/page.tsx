@@ -21,6 +21,7 @@ import { ResourceDirectory } from '@/components/resource/ResourceDirectory';
 import { UrgentNeedsPanel } from '@/components/resource/UrgentNeedsPanel';
 import { SectionTitle } from '@/components/shared/SectionTitle';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { AutoLinkify } from "@/components/ui/auto-linkify";
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -142,7 +143,9 @@ export default function Home() {
           <AlertTriangle className="h-4 w-4" />
           <AlertTitle>Emergency Response Active</AlertTitle>
           <AlertDescription>
-            Tornado relief efforts are ongoing. If you need immediate assistance, call 911 or contact the emergency hotlines listed below.
+            <AutoLinkify>
+              Tornado relief efforts are ongoing. If you need immediate assistance, call 911 or contact the emergency hotlines listed below.
+            </AutoLinkify>
           </AlertDescription>
         </Alert>
       </section>
@@ -161,15 +164,17 @@ export default function Home() {
           <AlertTriangle className="h-5 w-5" />
           <AlertTitle className="text-lg font-semibold">Urgent: FEMA Assistance Available</AlertTitle>
           <AlertDescription className="space-y-2 mt-1">
-            <p>If you were affected by the recent St. Louis tornado, FEMA assistance may be available. It is crucial to register as soon as possible.</p>
-            <p>You can apply for assistance in the following ways:</p>
-            <ul className="list-disc list-inside space-y-1 pl-2">
-              <li>Online at <a href="https://www.DisasterAssistance.gov" target="_blank" rel="noopener noreferrer" className="underline hover:text-destructive-foreground/80 font-medium">DisasterAssistance.gov</a></li>
-              <li>By calling FEMA at <strong className="font-semibold">1-800-621-FEMA (1-800-621-3362)</strong>.</li>
-              <li>For TTY users: <strong className="font-semibold">1-800-462-7585</strong>.</li>
-              <li>If you use a relay service, such as video relay service (VRS), captioned telephone service or others, give FEMA the number for that service.</li>
-            </ul>
-            <p className="mt-2">Have your Social Security number, household income, contact information, insurance details, and bank account information ready when you apply.</p>
+            <AutoLinkify>
+              <p>If you were affected by the recent St. Louis tornado, FEMA assistance may be available. It is crucial to register as soon as possible.</p>
+              <p>You can apply for assistance in the following ways:</p>
+              <ul className="list-disc pl-6 space-y-1">
+                <li>Online at DisasterAssistance.gov</li>
+                <li>By calling FEMA at 1-800-621-FEMA (1-800-621-3362)</li>
+                <li>For TTY users: 1-800-462-7585</li>
+                <li>If you use a relay service, such as video relay service (VRS), captioned telephone service or others, give FEMA the number for that service.</li>
+              </ul>
+              <p>Have your Social Security number, household income, contact information, insurance details, and bank account information ready when you apply.</p>
+            </AutoLinkify>
             <Button asChild variant="outline" size="sm" className="mt-3 border-destructive-foreground/50 text-destructive-foreground hover:bg-destructive-foreground/10">
               <a href="https://www.fema.gov/disaster/how-to-apply" target="_blank" rel="noopener noreferrer">
                 Learn More About Applying
@@ -328,7 +333,7 @@ export default function Home() {
                       )}
                     </TableCell>
                     <TableCell className="hidden md:table-cell text-muted-foreground">
-                      {contact.role}
+                      <AutoLinkify>{contact.role}</AutoLinkify>
                     </TableCell>
                   </TableRow>
                 ))}
