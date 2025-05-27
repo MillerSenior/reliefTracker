@@ -6,17 +6,14 @@ interface AutoLinkifyProps {
   className?: string;
 }
 
-interface LinkAttributes {
-  href: string;
-  target?: string;
-  rel?: string;
-  className?: string;
-  [key: string]: any;
-}
-
-interface RenderProps {
-  attributes: LinkAttributes;
+// Define our own interface that matches what linkify-react expects
+interface LinkifyIR {
   content: string;
+  attributes: {
+    [attr: string]: any;
+  };
+  tagName?: string;
+  type?: string;
 }
 
 // Custom function to format phone numbers for tel: protocol
@@ -49,8 +46,9 @@ const options = {
   },
   // Custom render function to handle different types of links
   render: {
-    url: ({ attributes, content }: RenderProps) => {
-      const { href, ...props } = attributes;
+    url: (ir: LinkifyIR) => {
+      const { attributes, content } = ir;
+      const href = attributes.href || '';
       // Check if it looks like a physical address
       if (content.match(addressPattern)) {
         const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(content)}`;
@@ -66,9 +64,10 @@ const options = {
           </a>
         );
       }
-      return <a href={href} {...props}>{content}</a>;
+      return <a href={href} {...attributes}>{content}</a>;
     },
-    email: ({ attributes, content }: RenderProps) => {
+    email: (ir: LinkifyIR) => {
+      const { content } = ir;
       return (
         <a 
           href={`mailto:${content}`}
@@ -79,7 +78,8 @@ const options = {
         </a>
       );
     },
-    phone: ({ content }: { content: string }) => {
+    phone: (ir: LinkifyIR) => {
+      const { content } = ir;
       const formattedNumber = formatPhoneNumber(content);
       return (
         <a 
@@ -100,7 +100,8 @@ const options = {
       {
         pattern: addressPattern,
         type: 'address',
-        render: ({ content }) => {
+        render: (ir: LinkifyIR) => {
+          const { content } = ir;
           const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(content)}`;
           return (
             <a 
@@ -122,7 +123,7 @@ const options = {
 export function AutoLinkify({ children, className }: AutoLinkifyProps) {
   // If no className is provided, use an inline display to maintain text flow
   const containerClass = className || 'inline';
-  
+
   return (
     <div className={containerClass}>
       <Linkify options={options}>

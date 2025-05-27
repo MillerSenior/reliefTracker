@@ -8,9 +8,8 @@ const nextConfig = {
     '@opentelemetry/exporter-jaeger',
     '@opentelemetry/auto-instrumentations-node'
   ],
-  experimental: {
-    instrumentationHook: true
-  }
+  // experimental section removed as instrumentationHook is no longer needed
+  // instrumentation.js is available by default in Next.js 15.2.3
 };
 
 module.exports = nextConfig; 
