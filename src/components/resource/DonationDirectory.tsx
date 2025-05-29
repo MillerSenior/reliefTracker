@@ -87,6 +87,70 @@ const supplyLocations: ServiceLocation[] = [
     address: "910 N 11th Street",
     info: "Coordinates volunteer efforts and accepts donations.",
     url: "https://helpingpeople.org"
+  },
+  {
+    name: "The Wellston Center",
+    address: "1705 Kienlen Ave, St. Louis, MO 63133",
+    info: "Accepting essential food, clothing, and household items. Open Tues & Wed 8AM-12PM, Fri 9AM-12PM",
+    url: "https://www.wellstoncenter.org"
+  },
+  {
+    name: "Love the Lou - Site #1",
+    address: "1421 North Taylor Ave, St. Louis, MO 63113",
+    info: "Accepting donations daily 12-4pm",
+    url: "https://lovethelou.org"
+  },
+  {
+    name: "Love the Lou - Site #2",
+    address: "3801 Ashland Ave, St. Louis, MO 63107",
+    info: "Accepting donations daily 12-4pm",
+    url: "https://lovethelou.org"
+  },
+  {
+    name: "Black Power Blueprint",
+    address: "4101 W Florissant Ave, St. Louis, MO 63115",
+    info: "Mon - Fri, 9 am - 5 pm. Accepting building supplies, lumber, power and non-power tools",
+    url: "https://blackpowerblueprint.org"
+  },
+  {
+    name: "FrizzFest STL - SweetArt",
+    address: "3701 Lindell Blvd, St. Louis, MO 63108",
+    info: "Wed-Sun, 7am-8pm. Accepting feminine hygiene products and baby supplies",
+    url: "https://www.sweetartstl.com"
+  },
+  {
+    name: "FrizzFest STL - B Juiced",
+    address: "605 S. Florissant, St. Louis, MO 63135",
+    info: "Wed-Fri 8am-5pm, Sat 8am-3pm. Accepting feminine hygiene products and baby supplies"
+  },
+  {
+    name: "Home Sweet Home",
+    address: "10 Sunnen Drive, Suite 100, St. Louis, MO 63143",
+    info: "Accepting new and gently used furniture. Mon-Fri 9am-2pm, first Saturday of each month 9am-12pm",
+    url: "https://homesweethomestl.org"
+  },
+  {
+    name: "The Fabulous Fox Theatre",
+    address: "527 N. Grand Blvd, St. Louis, MO 63103",
+    info: "Accepting donations at box office (10am-5pm, 10am-2pm Saturdays) until June 1st",
+    notes: "Accepting canned goods, dry boxed goods, hygiene products, cleaning supplies, baby supplies"
+  },
+  {
+    name: "City Sewing Room",
+    address: "6700 Arsenal St, St. Louis, MO 63139",
+    info: "Friday May 23rd 12-6pm and May 24th, 12-4pm"
+  },
+  {
+    name: "The Heavy Anchor",
+    address: "5266 Gravois Ave, St. Louis, MO 63116",
+    info: "Accepting donations after 5pm daily. Need socks/underwear, non-perishable foods, water bottles, baby formula",
+    notes: "Pop-tops preferred for canned goods"
+  },
+  {
+    name: "McArthur's Bakery",
+    address: "3055 Lemay Ferry Road, St. Louis, MO 63125",
+    info: "Collecting donations until May 31st from 7am-3pm",
+    notes: "Accepting repair items, cleaning supplies, hygiene items, comfort items, kids support items, non-perishables"
   }
 ];
 
@@ -188,6 +252,21 @@ const transportationServices: ServiceLocation[] = [
     name: "Shelter Transportation - Academy Sherman",
     address: "5200 Cates Ave",
     info: "Daily pickup at 8:00 PM"
+  },
+  {
+    name: "Metro Transit Evening Pickup - Ville Location",
+    address: "Save A Lot parking lot, 4447 Natural Bridge Road Ave",
+    info: "Evening pickup at 8:00 PM to designated shelters, morning return at 9:00 AM"
+  },
+  {
+    name: "Metro Transit Evening Pickup - Academy Sherman",
+    address: "5200 Cates Ave",
+    info: "Evening pickup at 8:00 PM to designated shelters, morning return at 9:00 AM"
+  },
+  {
+    name: "North Side Youth and Senior Service Center",
+    address: "Contact (314) 652-9946",
+    info: "Transportation for seniors, contact to schedule a ride"
   }
 ];
 
@@ -201,6 +280,22 @@ const storageServices: ServiceLocation[] = [
   }
 ];
 
+const furnitureServices: ServiceLocation[] = [
+  {
+    name: "Home Sweet Home",
+    address: "10 Sunnen Drive, Suite 100, St. Louis, MO 63143",
+    info: "Providing furniture for families affected by the tornado",
+    url: "https://homesweethomestl.org",
+    notes: "Multiple regular volunteer opportunities to supply families with furniture"
+  },
+  {
+    name: "Urban League Furniture Assistance",
+    address: "1408 N. Kingshighway Blvd",
+    info: "Coordinating furniture donations and distribution",
+    url: "https://www.ulstl.com"
+  }
+];
+
 const getGoogleMapsUrl = (address: string) => {
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
 };
@@ -209,7 +304,7 @@ export function DonationDirectory() {
   return (
     <Tabs defaultValue="donate" className="w-full">
       <div className="relative w-full overflow-x-auto pb-2 md:overflow-x-visible">
-        <TabsList className="inline-flex w-max md:w-full md:grid md:grid-cols-8">
+        <TabsList className="inline-flex w-max md:w-full md:grid md:grid-cols-9">
           <TabsTrigger value="donate">
             <Heart className="h-4 w-4 mr-2" />
             Donate
@@ -241,6 +336,10 @@ export function DonationDirectory() {
           <TabsTrigger value="storage">
             <Archive className="h-4 w-4 mr-2" />
             Storage
+          </TabsTrigger>
+          <TabsTrigger value="furniture">
+            <Home className="h-4 w-4 mr-2" />
+            Furniture
           </TabsTrigger>
         </TabsList>
       </div>
@@ -504,6 +603,43 @@ export function DonationDirectory() {
                     <Button variant="link" asChild className="p-0 h-auto">
                       <a href={service.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
                         Learn More <ExternalLink className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </TabsContent>
+
+      <TabsContent value="furniture" className="mt-4">
+        <Card>
+          <CardHeader>
+            <CardTitle>Furniture Donation & Distribution</CardTitle>
+            <CardDescription>Locations accepting and distributing furniture to affected families.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-4">
+            {furnitureServices.map((service) => (
+              <div key={service.name} className="border rounded-lg p-4">
+                <h3 className="font-semibold">{service.name}</h3>
+                <AutoLinkify>
+                  {service.address && <p className="text-sm text-muted-foreground mt-1">{service.address}</p>}
+                  {service.info && <p className="text-sm mt-2">{service.info}</p>}
+                  {service.notes && <p className="text-sm text-muted-foreground mt-2">{service.notes}</p>}
+                </AutoLinkify>
+                <div className="flex gap-2 mt-2">
+                  {service.url && (
+                    <Button variant="link" asChild className="p-0 h-auto">
+                      <a href={service.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        Learn More <ExternalLink className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                  )}
+                  {service.address && (
+                    <Button variant="link" asChild className="p-0 h-auto">
+                      <a href={getGoogleMapsUrl(service.address)} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        Get Directions <Map className="h-4 w-4 ml-1" />
                       </a>
                     </Button>
                   )}

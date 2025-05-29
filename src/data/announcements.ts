@@ -43,5 +43,32 @@ export const announcements: Announcement[] = [
     content: 'The People\'s Response Hub at the O\'Fallon YMCA, 4343 W. Florissant Ave, is open daily until May 31st. URGENT needs: Distilled water, Brooms, Non-perishable food. Do not need: Paper towels, Toilet paper, Small reusable bags, Reusable boxes, Trash bags, Ziploc bags, COVID Masks, Pet food',
     date: '2025-05-27T07:00:00Z',
     organization: 'People\'s Response Hub'
+  },
+  {
+    id: 'developer-petition',
+    title: 'Active Petition Against Developer Exploitation',
+    content: 'Solidarity Coalition STL Metro East has launched a petition to prevent developers from exploiting those affected by the May 16th tornado. Corporate developers and slumlords are circling our neighborhoods.',
+    date: '2025-05-28T12:00:00Z',
+    url: 'https://chng.it/HVZLy7cXNr'
+  },
+  {
+    id: 'peoples-hub-needs-update',
+    title: 'People\'s Response Hub Updated Needs',
+    content: 'URGENT needs at O\'Fallon YMCA (4343 W. Florissant Ave): Reusable bags/totes (medium & large), Pop top can food, Individually wrapped snacks, Shampoo & conditioner, Adult diapers, Body wipes, Deodorant, Shower gel, First aid supplies, Cleaning supplies, Baby food, Pull Ups, Dog food, Cleaning tools.',
+    date: '2025-05-28T21:00:00Z',
+    organization: 'People\'s Response Hub'
+  },
+  {
+    id: 'furniture-donations',
+    title: 'Furniture Donation Locations Needed',
+    content: 'Need Request for Furniture donation drop off locations- we anticipate this need growing in the coming weeks. Home Sweet Home (10 Sunnen Drive) is currently accepting furniture donations Mon-Fri 9am-2pm and first Saturday of each month 9am-12pm. Urban League is also coordinating furniture distribution.',
+    date: '2025-05-28T10:00:00Z',
+    url: 'https://homesweethomestl.org'
+  },
+  {
+    id: 'volunteer-decline',
+    title: 'Critical Volunteer Shortage',
+    content: 'Volunteer support has gone down significantly during the week. There\'s a large amount of donation drop-offs but not enough people distributing. Places needing help are listed in the volunteer request section.',
+    date: '2025-05-28T08:00:00Z'
   }
 ]; 

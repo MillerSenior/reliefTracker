@@ -124,6 +124,23 @@ export const resourceLocations: ResourceLocation[] = [
   },
   // New locations from live document
   {
+    id: "ferguson-nazarene",
+    organization: "Ferguson Church of the Nazarene",
+    address: "1309 N. Elizabeth Ave, Ferguson, MO 63135",
+    description: "American Red Cross shelter providing overnight stays",
+    notes: "Relocated from 12th and Park Recreation Center",
+    type: "Shelter",
+    coordinates: { lat: 38.7441, lng: -90.2751 }
+  },
+  {
+    id: "south-city-ymca",
+    organization: "South City YMCA",
+    address: "3150 Sublette Ave, St. Louis, MO 63139",
+    description: "Emergency shelter location",
+    type: "Shelter",
+    coordinates: { lat: 38.6066, lng: -90.2789 }
+  },
+  {
     id: "saint-paul-ame",
     organization: "Saint Paul AME Church",
     address: "1260 Hamilton Street, St. Louis, MO 63112",
@@ -138,6 +155,34 @@ export const resourceLocations: ResourceLocation[] = [
     description: "Emergency shelter location",
     type: "Shelter",
     coordinates: { lat: 36.8761, lng: -89.5440 }
+  },
+  {
+    id: "healthcare-taskforce",
+    organization: "The Healthcare Taskforce",
+    address: "4447 Natural Bridge",
+    description: "Blood pressure and sugar checks, wellness checks daily available",
+    notes: "Open 10am-5pm, contact (314)-690-3638 for medical assistance",
+    type: "Medical",
+    coordinates: { lat: 38.6667, lng: -90.2407 }
+  },
+  {
+    id: "stl-rx-outreach",
+    organization: "STL Rx Outreach",
+    description: "90 Day Supply Relief Fund for lost prescription medication",
+    contact: { phone: "314-222-0472" },
+    type: "Medical",
+    notes: "Call for assistance if you lost prescription medication due to the storm"
+  },
+  {
+    id: "haven-recovery",
+    organization: "Haven Recovery",
+    description: "Wound Care/Outreach Van and mobile shower pods",
+    contact: {
+      name: "Callan Montgomery",
+      phone: "314-930-9384",
+      email: "callan@havenrecoverystl.com"
+    },
+    type: "Medical"
   },
   {
     id: "4theville-hub",
