@@ -2,6 +2,14 @@ import type { Announcement } from '@/types';
 
 export const announcements: Announcement[] = [
   {
+    id: 'schnucks-roundup',
+    title: 'Schnucks Round Up at the Register',
+    content: 'Schnuck Markets, Inc. is once again Rounding Up at the Register for the Urban League of Metro St. Louis and United Way of Greater St. Louis for our Tornado Victims Humanitarian Relief Fund. Please support this effort by rounding up, making a donation, or bringing/buying items from the needed items list for distribution to the community.',
+    date: '2024-06-06T23:59:59Z',
+    url: 'https://www.linkedin.com/posts/michael-mcmillan-2582506_schnucks-ulstl-stlrebuilds-activity-7333449261088473089-ZpYY',
+    organization: 'Urban League of Metropolitan St. Louis'
+  },
+  {
     id: 'urban-league-distribution',
     title: 'Urban League Distribution Event',
     content: 'The Urban League of Metro St. Louis & partners are hosting our second large scale food, toiletries and resource distribution this Saturday from 12-3 at our headquarters for victims of the tornado. For donations, visit ulstl.com/donatenow or bring items to headquarters at 1408 North Kingshighway between 9-5 any workday.',
