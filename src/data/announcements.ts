@@ -136,5 +136,67 @@ If you are a corporation or nonprofit organization interested in partnering or c
     content: 'Solidarity Coalition STL Metro East has launched a petition to prevent developers from exploiting those affected by the May 16th tornado. Corporate developers and slumlords are circling our neighborhoods.',
     date: '2025-05-28T12:00:00Z',
     url: 'https://chng.it/HVZLy7cXNr'
+  },
+  {
+    id: 'ada-compliance',
+    title: 'ADA Accessibility Information',
+    content: `In accordance with new ADA requirements effective April 2024, all our digital communications are accessible to people with disabilities. For non-English speaking residents needing assistance, contact Gilberto Pinela, director of the [Office of New Americans](https://www.stlouis-mo.gov/government/departments/mayor/initiatives/new-americans/), at pinelag@stlouis-mo.gov.
+
+For those who need accessible formats or communication assistance, please call 314-622-4800.`,
+    date: '2025-05-30',
+    organization: 'City of St. Louis',
+    url: 'https://www.stlouis-mo.gov',
+    postedBy: 'Accessibility Team'
+  },
+  {
+    id: 'safety-curfew',
+    title: 'Important Safety Notice & Curfew',
+    content: `CURFEW IN EFFECT: 9pm-6am daily for Police Districts 5 and 6 until further notice.
+
+Building Safety Tags:
+- GREEN: Little to No Structural Hazards
+- YELLOW: Moderate Structural Damage 
+- RED: Severe Structural Damage
+
+Report emergencies: 911
+Report downed power lines: [Ameren](https://www.ameren.com): 800-552-7583
+Report gas leaks: [Spire](https://www.spireenergy.com): 800-887-4173
+Report damage to city services: [Citizens' Service Bureau](https://www.stlouis-mo.gov/csb): 314-622-4800`,
+    date: '2025-05-30',
+    organization: 'City Emergency Management',
+    url: 'https://www.stlouis-mo.gov/government/departments/public-safety/emergency-management/',
+    postedBy: 'Public Safety Team'
+  },
+  {
+    id: 'financial-assistance',
+    title: 'Financial Aid & Support Programs',
+    content: `Available Financial Assistance:
+- [FEMA](https://www.fema.gov) Disaster Assistance: Applications being accepted
+- [Small Business Administration](https://www.sba.gov) Disaster Loans: Low-interest loans for homeowners and businesses
+- [Missouri REALTORS®](https://www.missourirealtor.org) Relief Foundation: Grants up to $500,000 for housing expenses
+- [Missouri DSS](https://dss.mo.gov) SNAP Benefits: Replacement benefits available for food lost due to power outages
+- [Rx Outreach](https://rxoutreach.org) Relief Fund: Assistance for lost/missing prescriptions (314-222-0472)
+
+Visit [stlouis-mo.gov/tornado](https://www.stlouis-mo.gov/tornado) for application details and requirements.`,
+    date: '2025-05-30',
+    organization: 'City of St. Louis',
+    url: 'https://www.stlouis-mo.gov',
+    postedBy: 'Financial Aid Coordinator'
+  },
+  {
+    id: 'cleanup-resources',
+    title: 'Cleanup & Debris Removal Services',
+    content: `Free Cleanup Services Available:
+- [Crisis Cleanup](https://www.crisiscleanup.org): 844-965-1386
+- [Clayton Park Lawn Service](https://claytonparklawnservice.com) Tree/Debris Cleanup: 314-296-1894
+- [STL Handyman](https://stlhandyman.com) Assistance (Tarps): 314-339-4024
+- [Dream Builders 4 Equity](https://dreambuilders4equity.org): Free boarding up services
+- [Brandon J Roofing](https://brandonjroofing.com): Free boarding and tarping (636-262-3964)
+
+The [Street Department](https://www.stlouis-mo.gov/government/departments/street) is actively clearing debris. Report debris piles to [CSB](https://www.stlouis-mo.gov/csb) at 314-622-4800.`,
+    date: '2025-05-30',
+    organization: 'City Services',
+    url: 'https://www.stlouis-mo.gov/government/departments/street',
+    postedBy: 'Cleanup Coordination Team'
   }
 ]; 
