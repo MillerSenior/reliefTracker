@@ -2,7 +2,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AutoLinkify } from '@/components/ui/auto-linkify';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { urgentNeeds } from '@/data/urgent-needs';
-import { AlertCircle, Package2, Users, Wrench } from 'lucide-react';
+import { AlertCircle, ExternalLink, Package2, Users, Wrench } from 'lucide-react';
 
 const getIcon = (type: 'Volunteer' | 'Supply' | 'Service') => {
   switch (type) {
@@ -32,12 +32,18 @@ export function UrgentNeedsPanel() {
                 </AlertTitle>
                 <AlertDescription className="mt-2 space-y-2">
                   <AutoLinkify>
-                    <p>{need.description}</p>
+                    <div>{need.description}</div>
                     {need.location && (
-                      <p className="text-sm font-medium">Location: {need.location}</p>
+                      <div className="text-sm font-medium">Location: {need.location}</div>
                     )}
                     {need.contact && (
-                      <p className="text-sm font-medium">Contact: {need.contact}</p>
+                      <div className="text-sm font-medium flex items-center gap-1">
+                        <span>Contact: </span>
+                        <span><AutoLinkify>{need.contact}</AutoLinkify></span>
+                        {need.contact.includes('http') && (
+                          <ExternalLink className="h-4 w-4 ml-1 text-primary" />
+                        )}
+                      </div>
                     )}
                   </AutoLinkify>
                 </AlertDescription>

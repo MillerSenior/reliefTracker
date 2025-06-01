@@ -128,10 +128,10 @@ export function AutoLinkify({ children, className }: AutoLinkifyProps) {
   const containerClass = className || 'inline';
 
   return (
-    <div className={containerClass}>
+    <span className={containerClass}>
       <Linkify options={options as any}>
         {children}
       </Linkify>
-    </div>
+    </span>
   );
 } 

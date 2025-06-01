@@ -1,20 +1,25 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { announcements } from '@/data/announcements';
-import { ExternalLink } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { ExternalLink, Info } from 'lucide-react';
+import { useMemo } from 'react';
 
 export function AnnouncementsPanel() {
-  const [lastUpdated] = useState(new Date().toLocaleString());
+  const lastUpdated = "June 1, 2025";
+  const cutoff = new Date("2025-06-01");
 
-  // Sort announcements by date in reverse order (oldest first)
+  // Sort announcements by date descending (newest first)
   const sortedAnnouncements = useMemo(() => {
-    return [...announcements].sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateA.getTime() - dateB.getTime(); // Sort oldest first
-    });
+    const sorted = announcements
+      .filter(a => new Date(a.date) >= new Date('2025-05-28'))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    // Debug: log the order
+    if (typeof window !== 'undefined') {
+      console.log('Sorted Announcements:', sorted.map(a => `${a.title} - ${a.date}`));
+    }
+    return sorted;
   }, []);
 
   return (
@@ -29,20 +34,54 @@ export function AnnouncementsPanel() {
         <div className="space-y-4">
           {sortedAnnouncements.map((announcement) => {
             const announcementDate = new Date(announcement.date);
-            
+            // Format date as "Month Day, Year" (e.g., May 28, 2025)
+            const formattedDate = announcementDate.toLocaleDateString(undefined, {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            });
+            // Emoji logic
+            const emoji = announcementDate < cutoff ? '📢' : '📅';
             return (
               <Card key={announcement.id}>
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div>
-                      <CardTitle>{announcement.title}</CardTitle>
+                      <CardTitle>
+                        <span>
+                          {emoji} {announcement.title}
+                        </span>
+                      </CardTitle>
                       <CardDescription className="space-y-1">
                         <div className="text-sm">
-                          Date: {announcementDate.toLocaleString()}
+                          {formattedDate}
                         </div>
                         {announcement.organization && (
-                          <div className="text-sm">
-                            Organization: {announcement.organization}
+                          <div className="text-sm flex items-center gap-2">
+                            Organization: {announcement.url ? (
+                              <a 
+                                href={announcement.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary hover:underline"
+                              >
+                                {announcement.organization}
+                              </a>
+                            ) : (
+                              announcement.organization
+                            )}
+                            {announcement.postedBy && (
+                              <TooltipProvider>
+                                <Tooltip>
+                                  <TooltipTrigger asChild>
+                                    <span className="ml-1 cursor-pointer"><Info className="h-4 w-4" /></span>
+                                  </TooltipTrigger>
+                                  <TooltipContent>
+                                    <p>Posted by: {announcement.postedBy}</p>
+                                  </TooltipContent>
+                                </Tooltip>
+                              </TooltipProvider>
+                            )}
                           </div>
                         )}
                       </CardDescription>

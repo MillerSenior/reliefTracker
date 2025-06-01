@@ -40,5 +40,13 @@ export const urgentNeeds: UrgentNeed[] = [
     status: 'active',
     datePosted: '2025-05-27',
     type: 'Supply'
+  },
+  {
+    id: 'tech-volunteers-needed',
+    description: 'Tech volunteers needed for recovery and support initiatives. Looking for web developers, data managers, and technical coordinators to help with digital infrastructure and support systems.',
+    contact: 'See announcement: https://www.linkedin.com/posts/emilyhemingway_sldc-is-helping-the-city-assess-the-extent-activity-7333869807575945216-gCCV',
+    status: 'active',
+    datePosted: '2025-05-28',
+    type: 'Volunteer'
   }
 ]; 

@@ -49,4 +49,5 @@ export interface Announcement {
   date: string;
   url?: string;
   organization?: string;
+  postedBy?: string;
 }
