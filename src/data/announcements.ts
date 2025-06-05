@@ -198,5 +198,23 @@ The [Street Department](https://www.stlouis-mo.gov/government/departments/street
     organization: 'City Services',
     url: 'https://www.stlouis-mo.gov/government/departments/street',
     postedBy: 'Cleanup Coordination Team'
+  },
+  {
+    id: 'public-school-house-fundraiser',
+    title: 'Public School House Tornado Relief Fundraiser',
+    content: 'Join the Public School House and St Louis Area Foodbank for a tornado disaster relief fundraiser on Thursday, June 5 from 4–10 PM! Enjoy great food, live music, a silent auction, and more while giving back to the community. 100% of ticket sales will benefit the St. Louis Area Foodbank. All ages welcome.',
+    date: '2025-06-05T16:00:00Z',
+    url: 'https://lnkd.in/gwuBAtjh',
+    organization: 'St. Louis Area Foodbank',
+    postedBy: 'St. Louis Area Foodbank'
+  },
+  {
+    id: 'agc-missouri-relief',
+    title: 'AGC of Missouri Tornado Relief Fund',
+    content: '100% of all funds collected through AGC of Missouri will be donated to the tornado relief efforts. AGC of Missouri is providing support services to building, highway, transportation, utility, and infrastructure contractors, specialty contractors, and suppliers in Missouri.',
+    date: '2025-05-28',
+    url: 'https://www.linkedin.com/posts/lentoenjes_100-of-all-funds-collected-will-be-donated-activity-7333150072152489986-uhEb',
+    organization: 'AGC of Missouri',
+    postedBy: 'Len Toenjes, CAE'
   }
 ]; 
