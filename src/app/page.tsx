@@ -152,9 +152,12 @@ export default function Home() {
 
       {/* Urgent Needs & Announcements Section */}
       <section id="urgent-updates" className="space-y-8">
-        <div className="grid md:grid-cols-2 gap-8">
-          <UrgentNeedsPanel />
-          <AnnouncementsPanel />
+        <SectionTitle title="Urgent Updates" icon={AlertTriangle} />
+        <div className="relative w-full overflow-x-auto pb-2 md:overflow-x-visible">
+          <div className="grid md:grid-cols-2 gap-8">
+            <UrgentNeedsPanel />
+            <AnnouncementsPanel />
+          </div>
         </div>
       </section>
 
