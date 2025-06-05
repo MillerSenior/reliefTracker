@@ -7,7 +7,7 @@ import { ExternalLink, Info } from 'lucide-react';
 import { useMemo } from 'react';
 
 export function AnnouncementsPanel() {
-  const lastUpdated = "June 1, 2025";
+  const lastUpdated = "June 5, 2025";
   const cutoff = new Date("2025-06-01");
 
   // Sort announcements by date descending (newest first)
@@ -24,85 +24,89 @@ export function AnnouncementsPanel() {
 
   return (
     <div className="space-y-4">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center px-4">
         <h2 className="text-2xl font-bold tracking-tight">Latest Announcements</h2>
         <span className="text-xs text-muted-foreground">
           Last updated: {lastUpdated}
         </span>
       </div>
-      <ScrollArea className="h-[400px]">
-        <div className="space-y-4">
-          {sortedAnnouncements.map((announcement) => {
-            const announcementDate = new Date(announcement.date);
-            // Format date as "Month Day, Year" (e.g., May 28, 2025)
-            const formattedDate = announcementDate.toLocaleDateString(undefined, {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            });
-            // Emoji logic
-            const emoji = announcementDate < cutoff ? '📢' : '📅';
-            return (
-              <Card key={announcement.id}>
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle>
-                        <span>
-                          {emoji} {announcement.title}
-                        </span>
-                      </CardTitle>
-                      <CardDescription className="space-y-1">
-                        <div className="text-sm">
-                          {formattedDate}
-                        </div>
-                        {announcement.organization && (
-                          <div className="text-sm flex items-center gap-2">
-                            Organization: {announcement.url ? (
-                              <a 
-                                href={announcement.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-primary hover:underline"
-                              >
-                                {announcement.organization}
-                              </a>
-                            ) : (
-                              announcement.organization
-                            )}
-                            {announcement.postedBy && (
-                              <TooltipProvider>
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    <span className="ml-1 cursor-pointer"><Info className="h-4 w-4" /></span>
-                                  </TooltipTrigger>
-                                  <TooltipContent>
-                                    <p>Posted by: {announcement.postedBy}</p>
-                                  </TooltipContent>
-                                </Tooltip>
-                              </TooltipProvider>
-                            )}
+      <div className="px-4">
+        <ScrollArea className="h-[400px] w-full">
+          <div className="space-y-4 pr-4">
+            {sortedAnnouncements.map((announcement) => {
+              const announcementDate = new Date(announcement.date);
+              const formattedDate = announcementDate.toLocaleDateString(undefined, {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              });
+              const emoji = announcementDate < cutoff ? '📢' : '📅';
+              return (
+                <Card key={announcement.id}>
+                  <CardHeader>
+                    <div className="flex items-start justify-between overflow-x-auto">
+                      <div>
+                        <CardTitle>
+                          <span>
+                            {emoji} {announcement.title}
+                          </span>
+                        </CardTitle>
+                        <CardDescription className="space-y-1">
+                          <div className="text-sm">
+                            {formattedDate}
                           </div>
-                        )}
-                      </CardDescription>
+                          {announcement.organization && (
+                            <div className="text-sm flex items-center gap-2">
+                              <div className="overflow-x-auto">
+                                Organization: {announcement.url ? (
+                                  <a 
+                                    href={announcement.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-primary hover:underline"
+                                  >
+                                    {announcement.organization}
+                                  </a>
+                                ) : (
+                                  announcement.organization
+                                )}
+                              </div>
+                              {announcement.postedBy && (
+                                <TooltipProvider>
+                                  <Tooltip>
+                                    <TooltipTrigger asChild>
+                                      <span className="ml-1 cursor-pointer"><Info className="h-4 w-4" /></span>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                      <p>Posted by: {announcement.postedBy}</p>
+                                    </TooltipContent>
+                                  </Tooltip>
+                                </TooltipProvider>
+                              )}
+                            </div>
+                          )}
+                        </CardDescription>
+                      </div>
+                      {announcement.url && (
+                        <Button variant="ghost" size="sm" asChild>
+                          <a href={announcement.url} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
                     </div>
-                    {announcement.url && (
-                      <Button variant="ghost" size="sm" asChild>
-                        <a href={announcement.url} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    )}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm">{announcement.content}</p>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-      </ScrollArea>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="overflow-x-auto">
+                      <p className="text-sm">{announcement.content}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </ScrollArea>
+      </div>
     </div>
   );
 } 
