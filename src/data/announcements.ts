@@ -170,31 +170,34 @@ Report damage to city services: [Citizens' Service Bureau](https://www.stlouis-m
   {
     id: 'financial-assistance',
     title: 'Financial Aid & Support Programs',
-    content: `Available Financial Assistance:
-- [FEMA](https://www.fema.gov) Disaster Assistance: Applications being accepted
-- [Small Business Administration](https://www.sba.gov) Disaster Loans: Low-interest loans for homeowners and businesses
-- [Missouri REALTORS®](https://www.missourirealtor.org) Relief Foundation: Grants up to $500,000 for housing expenses
-- [Missouri DSS](https://dss.mo.gov) SNAP Benefits: Replacement benefits available for food lost due to power outages
-- [Rx Outreach](https://rxoutreach.org) Relief Fund: Assistance for lost/missing prescriptions (314-222-0472)
+    content: `Available Financial Assistance Programs:
+- FEMA Disaster Assistance: Applications open until August 11, 2025
+- SBA Disaster Loans: Low-interest loans for homeowners and businesses
+- Missouri REALTORS® Relief Foundation: Grants up to $500,000 for housing expenses
+- Missouri DSS SNAP Benefits: Replacement benefits for food loss
+- Rx Outreach Relief Fund: Prescription assistance (314-222-0472)
+- Ameren Missouri: Payment arrangements through July 2025, deposits waived through August 2025
 
-Visit [stlouis-mo.gov/tornado](https://www.stlouis-mo.gov/tornado) for application details and requirements.`,
-    date: '2025-05-30',
+Visit stlouis-mo.gov/tornado for application details and requirements.`,
+    date: '2025-06-30',
     organization: 'City of St. Louis',
-    url: 'https://www.stlouis-mo.gov',
+    url: 'https://www.stlouis-mo.gov/tornado',
     postedBy: 'Financial Aid Coordinator'
   },
   {
     id: 'cleanup-resources',
     title: 'Cleanup & Debris Removal Services',
-    content: `Free Cleanup Services Available:
-- [Crisis Cleanup](https://www.crisiscleanup.org): 844-965-1386
-- [Clayton Park Lawn Service](https://claytonparklawnservice.com) Tree/Debris Cleanup: 314-296-1894
-- [STL Handyman](https://stlhandyman.com) Assistance (Tarps): 314-339-4024
-- [Dream Builders 4 Equity](https://dreambuilders4equity.org): Free boarding up services
-- [Brandon J Roofing](https://brandonjroofing.com): Free boarding and tarping (636-262-3964)
+    content: `Available Cleanup Services:
+- Crisis Cleanup: 844-965-1386
+- Clayton Park Lawn Service (Tree/Debris): 314-296-1894
+- STL Handyman (Tarps): 314-339-4024
+- Dream Builders 4 Equity: Free boarding services
+- Brandon J Roofing: Free boarding and tarping (636-262-3964)
 
-The [Street Department](https://www.stlouis-mo.gov/government/departments/street) is actively clearing debris. Report debris piles to [CSB](https://www.stlouis-mo.gov/csb) at 314-622-4800.`,
-    date: '2025-05-30',
+The Street Department is actively clearing debris. Report debris piles to CSB (314-622-4800).
+
+REMINDER: Document all damage with photos before cleanup for insurance and FEMA claims.`,
+    date: '2025-06-30',
     organization: 'City Services',
     url: 'https://www.stlouis-mo.gov/government/departments/street',
     postedBy: 'Cleanup Coordination Team'
@@ -216,5 +219,69 @@ The [Street Department](https://www.stlouis-mo.gov/government/departments/street
     url: 'https://www.linkedin.com/posts/lentoenjes_100-of-all-funds-collected-will-be-donated-activity-7333150072152489986-uhEb',
     organization: 'AGC of Missouri',
     postedBy: 'Len Toenjes, CAE'
+  },
+  {
+    id: 'fema-recovery-centers',
+    title: 'New FEMA Disaster Recovery Centers Now Open',
+    content: `Four new FEMA Disaster Recovery Centers are now operating to assist tornado victims:
+
+- Union Tabernacle Missionary Baptist Church (626 North Newstead Ave): 8 a.m. to 8 p.m. Mon-Sat
+- Sumner High School parking lot (4248 Cottage Ave): 8 a.m. to 7 p.m. Mon-Sat, 8 a.m. to 6 p.m. Sun
+- Urban League Entrepreneurship Center (4401 Natural Bridge Ave): 8 a.m. to 8 p.m. Mon-Sat, 8 a.m. to 6 p.m. Sun
+- St. Louis County Library Mid-County Branch (7821 Maryland Ave): 8 a.m. to 7 p.m. Mon-Thu, 8 a.m. to 5 p.m. Fri-Sat
+
+FEMA has distributed $17 million in direct assistance to approximately 3,000 residents so far.`,
+    date: '2025-06-30',
+    organization: 'FEMA',
+    url: 'https://www.fema.gov/disaster/4763',
+    postedBy: 'FEMA Coordination Team'
+  },
+  {
+    id: 'peoples-hub-update',
+    title: 'People\'s Response Hub New Programs',
+    content: `Action St. Louis announces two new initiatives through the People's Response Hub:
+
+1. Resilience Fund: Direct cash assistance for residents with red-tagged homes
+2. Recovery Fellowship: Six-month paid program for local residents to participate in long-term recovery planning
+
+The Hub has served over 30,000 hot meals and assisted 10,000 households to date.`,
+    date: '2025-06-30',
+    organization: 'Action STL',
+    url: 'https://actionstl.org/tornado',
+    postedBy: 'Action STL Team'
+  },
+  {
+    id: 'health-safety-update',
+    title: 'Current Health & Safety Guidelines',
+    content: `Dr. Alexander Garza and the City Health Team are providing:
+- Emergency medical services for minor injuries
+- Medication refills for chronic conditions
+- Health monitoring during heat conditions
+- Support for residents with ongoing medical needs
+
+Key Safety Reminders:
+- Use proper protection when cleaning mold (masks, ventilation)
+- Watch for asbestos in damaged buildings
+- Stay hydrated in current weather conditions
+- Seek immediate care for any health concerns`,
+    date: '2025-06-30',
+    organization: 'City Health Department',
+    postedBy: 'Health Safety Team'
+  },
+  {
+    id: 'health-services',
+    title: 'Health Services Update',
+    content: `Available Health Services:
+- People's Health Centers: 4 locations open daily 9AM-4PM
+- Behavioral Health Response: 24/7 crisis support (988 or 314-819-8811)
+- Rx Outreach Tornado Relief Fund: Medication assistance
+- GreaterHealth Pharmacy: Free prescription delivery
+- Heat advisory support available at all FEMA centers
+
+Mental health counselors available at all FEMA Disaster Recovery Centers during operating hours.`,
+    date: '2025-06-30',
+    organization: 'City Health Department',
+    url: 'https://www.stlouis-mo.gov/health',
+    postedBy: 'Health Services Team'
   }
 ]; 

@@ -1,0 +1,448 @@
+
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Page Not Found (404)</title>
+
+        <link href="/style/glyphicons.css" rel="stylesheet" type="text/css" media="all" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700|Merriweather:400,700' rel='stylesheet' type='text/css' rel="prefetch">
+
+<style type="text/css">
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    *:before,
+    *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    html {
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+    body {
+        background-color: #efefef;
+        color: #303030;
+        font-family: "Open Sans",verdana,sans-serif;
+        text-align: center;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: 'Merriweather', georgia, serif;
+        letter-spacing: 0.05rem;
+        font-weight: 700;
+        display: block;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin: .5em 0 1em 0;
+    }
+
+    h2 {
+        font-size: 2em;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 0 rgba(200, 200, 200, 0.1);
+        padding-bottom: 10px;
+        margin-top: 0.83em;
+        margin-bottom: 0.83em;
+    }
+
+    address {
+        font-style: initial;
+    }
+
+    .header {
+        background-color: #fff;
+    }
+
+    .container {
+        margin: 0 auto;
+        /*box-shadow:0 1px 3px rgba(0,0,0,.3);*/
+        /*background-color:#fff;*/
+        padding: 0 1em;
+        max-width: 1000px;
+        text-align: left;
+        overflow: hidden;
+        /*border-radius: 0 0 3px 3px;*/
+    }
+
+    .small {
+        font-size: .8em;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .header-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    .header-nav-column {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .logo {
+        font-family:'Open Sans', verdana, sans-serif;
+        color: #f5f5f5;
+        text-shadow: 1px 1px 1px #000;
+        display: flex;
+        align-items: center;
+        letter-spacing:.05rem;
+        text-decoration: none;
+    }
+
+        .logo a {
+            display: block;
+            color:#333;
+            text-shadow: 0 1px 0 #fff;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .logo a:first-child {
+            padding-right: 10px;
+            margin-right: 10px;
+            /* border-right: 1px solid rgba(0,0,0,.3); */
+            font-size: 1.55em;
+        }
+
+        .logo a img {
+            margin: 0 2px -1px 2px;
+            float: none;
+            vertical-align: baseline;
+            width: 20px;
+            height: 20px;
+        }
+
+    @media(max-width: 1200px) {
+        .logo a:first-child {
+            border-right: none;
+        } 
+    }
+
+    @media(max-width: 992px) {
+        .logo a img {
+            width: 17px;
+            width: 17px;
+            position: relative;
+            top: 2px;
+        }
+
+        .logo a:first-child {
+            font-size: 1.4em;
+        }
+    }
+
+    @media(max-width: 480px) {
+        .logo a:first-child {
+            margin:0;
+            padding: 0;
+            font-size: 1.3em;
+        }
+    }
+
+    ul li,
+    ol li {
+        line-height: 1.5em;
+        padding: 5px 0;
+    }
+
+    p {
+        line-height: 1.65em;
+    }
+
+    .hero {
+        display: block;
+        overflow: hidden;
+        margin: 0;
+        text-align: center;
+        padding: 2em 1em 3em 1em;
+        background-color: #1e526b;
+        color: white;
+    }
+
+    .hero .glyphicons {
+        font-size: 2em;
+        border-radius: 2em;
+        border: 3px solid white;
+        padding: .5em;
+        margin: .3em 0;
+    }
+
+    /* Arrows */
+    .full-row-arrow {
+        height: 0;
+        width: 0;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        margin: 35px auto;
+    }
+
+    .full-row-arrow::before {
+        content: ' ';
+        display: block;
+        overflow: hidden;
+        height: 35px;
+        width: 100%;
+        left: 0;
+    }
+
+    .full-row-arrow-hero {
+        border-top: 20px solid #1e526b;
+        margin: 0 auto 35px auto;
+    }
+
+    .full-row-arrow.full-row-arrow-hero::before {
+        background-color: #1e526b;
+    }
+
+    .row {
+
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding: 0 1px;
+        margin: 20px 0;
+    }
+
+    .col-50,
+    .col-66,
+    .col-33 {
+        position: relative;
+        box-sizing: border-box;
+        padding: 0 1em;
+        float: left;
+    }
+
+    .col-50 {
+        width: 50%;
+    }
+
+    .col-66 {
+        width: 66%;
+    }
+
+    .col-33 {
+        width: 33%
+    }
+
+    .col-50:first-child,
+    .col-66:first-child,
+    .col-33:first-child {
+        padding-left: 0;
+    }
+
+    .col-50:last-child,
+    .col-66:last-child,
+    .col-33:last-child {
+        padding-right: 0;
+    }
+
+    .content-block {
+        display: block;
+        border-radius: 3px;
+        overflow: hidden;
+        padding: 20px;
+        margin: 1em 0;
+        /*background-color: #efefef;*/
+        background-color: #fff;
+        /*border: 1px solid rgba(0,0,0,.15);*/
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    }
+
+    .content-block ul,
+    .content-block ol {
+        margin-top: .5em;
+    }
+
+    .sr-only {
+        position: absolute;
+        left: -10000000000px;
+    }
+
+    form {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    input {
+        font-size: 1.2em;
+        padding: 10px;
+        border: 1px solid #dedede;
+        border-radius: 3px;
+        margin: 10px 0;
+        max-width: 100%;
+        border-color: #1e526b;
+    }
+
+    input[type="text"] {
+        flex-grow: 1;
+        margin-right: 10px;
+        flex-shrink: 1;
+    }
+
+    input[type="submit"] {
+        background-color: #1e526b;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+
+        h2,
+        .h2 {
+            font-size: 1.5em;
+        }
+
+        .hero h1 {
+            font-size: 1.5em;
+        }
+
+        .container {
+            border-radius: 0;
+            box-shadow: 0;
+        }
+
+        input {
+            font-size: 1em;
+        }
+
+        .col-50,
+        .col-66,
+        .col-33 {
+            float: none;
+            width: 100%;
+            padding: 0;
+        }
+    }
+</style>
+<!--[if lte IE 8]>
+<style type="text/css">
+    .container{border:1px solid #909090;}
+</style>
+<![endif]-->
+    </head>
+    <body>
+        <div class="header">
+            <div class="container">
+                <div class="header-items">
+                    <div class="header-logo-column">
+                        <div class="logo">
+                            <a href="/" class="logo-top-line" title="stlouis-mo.gov home page">
+                                <strong>STLOUIS</strong>-MO<img src="data:image/svg+xml;base64,DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDIwMS42OCAyMDAuNjYiPg0KICAgIDx0aXRsZT5GbGV1ciBEZSBMaXM8L3RpdGxlPg0KICAgIDxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPg0KICAgICAgICA8ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiIGZpbGwgPSAiI0MwMzIyMSI+DQogICAgICAgICAgICA8cGF0aCBjbGFzcz0iZmxldXItZGUtbGlzIiBkPSJNMTAwLjcxLDEyNy45MWMtNC4yMywwLTQuMjgsMC00Ljc5LTQuNTFBMTEzLjEyLDExMy4xMiwwLDAsMCw4MS4yNyw3OS4xOGMtMy44NS02LjY1LTcuNTQtMTMuMzctOS41NS0yMC44OS00LjA2LTE1LjIuMTItMjguNTEsOS4xMS00MC43NUE2NC40OSw2NC40OSwwLDAsMSw5OS4zNi40LDMuMDYsMy4wNiwwLDAsMSwxMDIsLjIyYzE0LjY3LDkuNDcsMjUuMzEsMjIsMjguODksMzkuNTIsMi4xMiwxMC40LS41MSwyMC4yMS01LjEyLDI5LjUxLTMuODUsNy43Ny04LjI3LDE1LjI3LTExLjg2LDIzLjE2QTEwMC4wNywxMDAuMDcsMCwwLDAsMTA1LjU3LDEyNmMtLjEyLDEuNS0uNjgsMi0yLjA4LDEuOTJDMTAyLjU2LDEyNy44NiwxMDEuNjQsMTI3LjksMTAwLjcxLDEyNy45MVoiIC8+DQogICAgICAgICAgICA8cGF0aCBjbGFzcz0iZmxldXItZGUtbGlzIiBkPSJNMjYuODQsMTMxYTI1LjQ5LDI1LjQ5LDAsMCwxLTEyLjUzLTIuODZDMy4wOCwxMjIuNTYtNC40MiwxMDUuMzUsMi45Miw5My42NSw4LjM1LDg1LDE2LjA2LDc5LjA4LDI2LjEyLDc3LjcyYzE3LjA5LTIuMywzMS40OCwzLjEzLDQxLjc3LDE3LjUxLDYuODMsOS41NSwxMC4yNiwyMC41MywxMi42NCwzMS44OSwwLC4xMiwwLC4yNy0uMTYuNzFhNjEuNDcsNjEuNDcsMCwwLDEtNi42NC0uMDljLS43Mi0uMDctMS40MS0xLjA5LTItMS43OC01LjE4LTYuNDEtMTAuODMtMTIuMjgtMTguMzUtMTZhMjEuNzEsMjEuNzEsMCwwLDAtMTQuMDktMi4xNmMtOS4yMSwxLjgtMTQuMjUsOS0xMy4xLDE4LjQ4QzI2LjM5LDEyNy43NCwyNi42LDEyOS4yMSwyNi44NCwxMzFaIiAvPg0KICAgICAgICAgICAgPHBhdGggY2xhc3M9ImZsZXVyLWRlLWxpcyIgZD0iTTE3NS4yMiwxMzFjMC0zLjY3LjQxLTcuMTItLjA4LTEwLjQ0LTEuMS03LjUxLTYuNjEtMTIuMjgtMTQuMi0xMy02LjM2LS42NC0xMS45LDEuNDQtMTcuMDYsNC45YTU3LjIyLDU3LjIyLDAsMCwwLTEzLjQ3LDEzYy0xLjQsMS44NC0yLjg1LDIuNzctNS4xNiwyLjVhMzcuNzEsMzcuNzEsMCwwLDAtNC4yOSwwYy40My0yLC43My0zLjU1LDEuMTItNS4xMSwyLjQzLTkuNzIsNS44Mi0xOSwxMS41LTI3LjM4LDExLjUyLTE3LDMxLjMtMjAuMzEsNDQtMTcuMzVBMzMuNDksMzMuNDksMCwwLDEsMTk2LjgsOTAuNzVjNi44Myw4LjksNi40MywyMC40LS44NiwzMEEyNS40MSwyNS40MSwwLDAsMSwxNzcuNDgsMTMxQzE3Ni43MiwxMzEuMSwxNzUuOTQsMTMxLDE3NS4yMiwxMzFaIiAvPg0KICAgICAgICAgICAgPHBhdGggY2xhc3M9ImZsZXVyLWRlLWxpcyIgZD0iTTE0NS42LDE0Ny4zNkg1OWMtMi43NiwwLTIuNzYsMC0yLjc3LTIuOCwwLTIuMDYsMC00LjEzLDAtNi4xOSwwLTEuMjkuNDktMS44MywxLjc2LTEuNzQuNDIsMCwuODUsMCwxLjI4LDBIMTQyLjdjMi44OSwwLDIuODksMCwyLjksM1oiIC8+DQogICAgICAgICAgICA8cGF0aCBjbGFzcz0iZmxldXItZGUtbGlzIiBkPSJNMTAwLjg1LDE1Ni4xYzQuMjIsMCw0LjI2LDAsNSw0YTUwLjc1LDUwLjc1LDAsMCwwLDkuOTQsMjEuOTQsNCw0LDAsMCwxLC40Nyw0LjgyLDI4Ljc0LDI4Ljc0LDAsMCwxLTE0LDEzLjQ5LDMuNTIsMy41MiwwLDAsMS0yLjU5LjA3LDI4LjA2LDI4LjA2LDAsMCwxLTE0LjUxLTE0LjQsMi44OCwyLjg4LDAsMCwxLC4zNC0zLjNjNS42Mi03LjQzLDkuNjYtMTUuNTgsMTAuNzMtMjUsLjE0LTEuMTkuNi0xLjgxLDEuOS0xLjY5Qzk5LDE1Ni4xNyw5OS45MywxNTYuMSwxMDAuODUsMTU2LjFaIiAvPg0KICAgICAgICAgICAgPHBhdGggY2xhc3M9ImZsZXVyLWRlLWxpcyIgZD0iTTEzNy45LDE3Mi43NCwxMzIsMTc3LjljLTYuMDctNi0xMC41NS0xMi43NC0xMi4xNS0yMS42OCwyLjQzLDAsNC43LDAsNywwLC4yMSwwLC41MS40OC42Ljc5LDEuNjQsNS45Myw1LjY4LDEwLjI2LDkuNjgsMTQuNjJDMTM3LjMyLDE3MS45MiwxMzcuNTEsMTcyLjIyLDEzNy45LDE3Mi43NFoiIC8+DQogICAgICAgICAgICA8cGF0aCBjbGFzcz0iZmxldXItZGUtbGlzIiBkPSJNODEuOCwxNTYuMTFjLTEuNDIsOC44OS02LDE1LjU4LTEyLjA3LDIxLjc4bC02LTUuMThjLjg3LTEsMS42My0xLjkxLDIuNDItMi43OCwzLjQxLTMuNzYsNi41OC03LjY3LDguMDYtMTIuNjhhMi4wNywyLjA3LDAsMCwxLDEuNDktMS4wOUM3Ny42MiwxNTYsNzkuNTMsMTU2LjExLDgxLjgsMTU2LjExWiIgLz4NCiAgICAgICAgPC9nPg0KICAgIDwvZz4NCjwvc3ZnPg0K" alt="." width="20">GOV
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero">
+            <h1>Page Not Found (404)</h1>
+
+<p>
+    Perhaps the page was moved, or the address is incorrect.
+</p>
+        </div>
+
+        <div class="container" role="main">
+            <div class="full-row-arrow full-row-arrow-hero"></div>
+            <!-- <p><span class="small">9:40pm Wednesday, 06/20/2012</span></p> -->
+
+            <h2>Search The Site</h2>
+<div class="content-block text-center">
+    <form method="GET" id="siteSearchForm" action="/searchresults.cfm">
+        <label for="q" class="sr-only">
+            Search:
+        </label>
+        <input type="text" size="20" name="q" id="q">
+        <input type="submit" value="Search">
+    </form>
+</div>
+<div class="row">
+    <div class="col-50">
+        <h2>Top Requests</h2>
+        <div class="content-block">
+            <ul>
+                <li>
+                    <a href="/services/topic.cfm?id=217&name=fees-and-payment-information">
+                        Make a Payment
+                    </a>
+                </li>
+                <li>
+                    <a href="/government/departments/personnel/jobs/">
+                        Work For the City
+                    </a>
+                </li>
+                <li>
+                    <a href="/data/property.cfm">
+                        Real Estate and Land Records
+                    </a>
+                </li>
+                <li>
+                    <a href="/government/departments/">
+                        Departments and Agencies
+                    </a>
+                </li>
+                <li>
+                    <a href="/government/departments/public-safety/neighborhood-stabilization-office/citizens-service-bureau/csb-request-submit.cfm">
+                        Report a Problem
+                    </a>
+                </li>
+                <li>
+                    <a href="/government/departments/assessor/personal-property/">
+                        Personal Property Tax
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-50">
+        <h2>Main Site Sections</h2>
+        <div class="content-block">
+            <ul>
+                <li>
+                    <a href="/">City of St. Louis Home</a>
+                </li>
+                <li>
+                    <a href="/services/">Services</a>
+                </li>
+                <li>
+                    <a href="/departments/">Departments and Agencies</a>
+                </li>
+                <li>
+                    <a href="/news-media/">News</a>
+                </li>
+                <li>
+                    <a href="/events/">Calendar</a>
+                </li>
+                <li>
+                    <a href="/data/">Open Data</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+        </div>
+    </body>
+    </html>

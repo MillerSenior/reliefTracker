@@ -59,98 +59,29 @@ const cashDonations: DonationLink[] = [
 
 const supplyLocations: ServiceLocation[] = [
   {
-    name: "4theVille",
-    address: "4144 Dr. Martin Luther King Drive",
-    info: "Provides showers, lunch, snacks, and home repair supplies.",
-    url: "https://www.facebook.com/4theVILLE"
+    name: "Power Creative",
+    address: "3221 Oak Hill Ave., St Louis, MO 63116",
+    info: "Accepting donations Mon-Fri 8am-5pm, Sat 8am-2pm through July",
+    notes: "Primary donation drop-off location for South City"
   },
   {
-    name: "Action St. Louis",
-    address: "4343 West Florissant Avenue",
-    info: "Hosts the People's Response Hub offering meals and support services.",
+    name: "The People's Response Hub @ Kingdom Church STL",
+    address: "4112 West Florissant Ave, St Louis, MO 63115",
+    info: "Open Tues-Thurs 11am-3pm, Sat 1pm-4pm. Serves lunch at 11:30am",
     url: "https://actionstl.org/tornado"
   },
   {
-    name: "Better Family Life",
-    address: "5200 Cates Ave",
-    info: "Organizes debris removal and cleanup events.",
-    url: "https://www.facebook.com/BetterFamilyLifeInc"
-  },
-  {
     name: "Urban League Headquarters",
-    address: "1408 Kingshighway Blvd",
-    info: "Accepts donations and provides support services.",
-    url: "https://www.ulstl.com"
-  },
-  {
-    name: "United Way",
-    address: "910 N 11th Street",
-    info: "Coordinates volunteer efforts and accepts donations.",
-    url: "https://helpingpeople.org"
-  },
-  {
-    name: "The Wellston Center",
-    address: "1705 Kienlen Ave, St. Louis, MO 63133",
-    info: "Accepting essential food, clothing, and household items. Open Tues & Wed 8AM-12PM, Fri 9AM-12PM",
-    url: "https://www.wellstoncenter.org"
-  },
-  {
-    name: "Love the Lou - Site #1",
-    address: "1421 North Taylor Ave, St. Louis, MO 63113",
-    info: "Accepting donations daily 12-4pm",
-    url: "https://lovethelou.org"
-  },
-  {
-    name: "Love the Lou - Site #2",
-    address: "3801 Ashland Ave, St. Louis, MO 63107",
-    info: "Accepting donations daily 12-4pm",
-    url: "https://lovethelou.org"
-  },
-  {
-    name: "Black Power Blueprint",
-    address: "4101 W Florissant Ave, St. Louis, MO 63115",
-    info: "Mon - Fri, 9 am - 5 pm. Accepting building supplies, lumber, power and non-power tools",
-    url: "https://blackpowerblueprint.org"
-  },
-  {
-    name: "FrizzFest STL - SweetArt",
-    address: "3701 Lindell Blvd, St. Louis, MO 63108",
-    info: "Wed-Sun, 7am-8pm. Accepting feminine hygiene products and baby supplies",
-    url: "https://www.sweetartstl.com"
-  },
-  {
-    name: "FrizzFest STL - B Juiced",
-    address: "605 S. Florissant, St. Louis, MO 63135",
-    info: "Wed-Fri 8am-5pm, Sat 8am-3pm. Accepting feminine hygiene products and baby supplies"
+    address: "1408 N. Kingshighway Blvd, St. Louis, MO 63113",
+    info: "Accepting donations 9am-5pm daily",
+    url: "https://www.ulstl.com/donatenow.html",
+    phone: "314-743-3748"
   },
   {
     name: "Home Sweet Home",
     address: "10 Sunnen Drive, Suite 100, St. Louis, MO 63143",
     info: "Accepting new and gently used furniture. Mon-Fri 9am-2pm, first Saturday of each month 9am-12pm",
     url: "https://homesweethomestl.org"
-  },
-  {
-    name: "The Fabulous Fox Theatre",
-    address: "527 N. Grand Blvd, St. Louis, MO 63103",
-    info: "Accepting donations at box office (10am-5pm, 10am-2pm Saturdays) until June 1st",
-    notes: "Accepting canned goods, dry boxed goods, hygiene products, cleaning supplies, baby supplies"
-  },
-  {
-    name: "City Sewing Room",
-    address: "6700 Arsenal St, St. Louis, MO 63139",
-    info: "Friday May 23rd 12-6pm and May 24th, 12-4pm"
-  },
-  {
-    name: "The Heavy Anchor",
-    address: "5266 Gravois Ave, St. Louis, MO 63116",
-    info: "Accepting donations after 5pm daily. Need socks/underwear, non-perishable foods, water bottles, baby formula",
-    notes: "Pop-tops preferred for canned goods"
-  },
-  {
-    name: "McArthur's Bakery",
-    address: "3055 Lemay Ferry Road, St. Louis, MO 63125",
-    info: "Collecting donations until May 31st from 7am-3pm",
-    notes: "Accepting repair items, cleaning supplies, hygiene items, comfort items, kids support items, non-perishables"
   }
 ];
 
@@ -184,21 +115,22 @@ const hotspots: ServiceLocation[] = [
 
 const shelters: ServiceLocation[] = [
   {
-    name: "Friendly Temple Center",
-    address: "6356 Dr. Martin Luther King Drive",
-    info: "Offers shelter services.",
-    url: "http://www.friendlytemple.org"
+    name: "FEMA Disaster Recovery Center - Union Tabernacle",
+    address: "626 N. Newstead Ave., St. Louis, MO 63108",
+    info: "FEMA assistance applications and support services",
+    notes: "Open Monday-Saturday 8am-8pm"
   },
   {
-    name: "The Recreational Center",
-    address: "1410 S. Tucker Blvd",
-    info: "Provides temporary housing."
+    name: "FEMA Disaster Recovery Center - Sumner High",
+    address: "4248 Cottage Ave., St. Louis, MO 63113",
+    info: "FEMA assistance applications and support services",
+    notes: "Open Mon-Sat 8am-7pm, Sun 8am-6pm"
   },
   {
-    name: "Urban League x Temporary Housing",
-    info: "Coordinates temporary housing solutions.",
-    url: "https://www.ulstl.com",
-    address: "Contact for location"
+    name: "FEMA Disaster Recovery Center - Urban League",
+    address: "4401 Natural Bridge Ave., St. Louis, MO 63115",
+    info: "FEMA assistance applications and support services",
+    notes: "Open Mon-Sat 8am-8pm, Sun 8am-6pm"
   }
 ];
 
@@ -441,13 +373,6 @@ export function DonationDirectory() {
                   {shelter.notes && <p className="text-sm text-muted-foreground mt-2">{shelter.notes}</p>}
                 </AutoLinkify>
                 <div className="flex gap-2 mt-2">
-                  {shelter.url && (
-                    <Button variant="link" asChild className="p-0 h-auto">
-                      <a href={shelter.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        Learn More <ExternalLink className="h-4 w-4 ml-1" />
-                      </a>
-                    </Button>
-                  )}
                   {shelter.address && shelter.address !== "Contact for location" && (
                     <Button variant="link" asChild className="p-0 h-auto">
                       <a href={getGoogleMapsUrl(shelter.address)} target="_blank" rel="noopener noreferrer" className="flex items-center">

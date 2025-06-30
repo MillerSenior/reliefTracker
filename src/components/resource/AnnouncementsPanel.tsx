@@ -7,7 +7,7 @@ import { ExternalLink, Info } from 'lucide-react';
 import { useMemo } from 'react';
 
 export function AnnouncementsPanel() {
-  const lastUpdated = "June 5, 2025";
+  const lastUpdated = "June 30, 2025";
   const cutoff = new Date("2025-06-01");
 
   // Sort announcements by date descending (newest first)

@@ -24,197 +24,92 @@ const getIcon = (type: ResourceLocation['type'], description: string | undefined
 
 // All resource locations combined
 export const resourceLocations: ResourceLocation[] = [
-  // Original locations
   { 
-    id: "urban-league", 
-    organization: "Urban League of Metropolitan St. Louis", 
-    address: "1408 N. Kingshighway Blvd., St. Louis, MO 63113", 
-    description: "Distribution center for relief supplies and meals.", 
-    notes: "Offers three hot meals daily: breakfast (7:30–9 a.m.), lunch (11:30 a.m.–1 p.m.), and dinner (5–6:30 p.m.).", 
-    type: "Distribution Center", 
+    id: "fema-union-tabernacle", 
+    organization: "FEMA Disaster Recovery Center - Union Tabernacle", 
+    address: "626 North Newstead Ave., St. Louis, MO 63108", 
+    description: "FEMA assistance applications and support services. Apply by August 11, 2025. SBA and FEMA staff available to help with applications.", 
+    notes: "Open Monday-Saturday 8am-8pm, Sunday: Closed", 
+    type: "Services", 
     coordinates: { lat: 38.6508, lng: -90.2409 }
   },
   { 
-    id: "ville-hub", 
-    organization: "The Ville Emergency Hub", 
-    address: "4144 Dr. Martin Luther King Dr., St. Louis, MO 63113", 
-    description: "Community-led relief hub offering supplies and assistance.", 
-    notes: "Operated by 4TheVille in collaboration with local organizations.", 
-    type: "Hub", 
-    coordinates: { lat: 38.6542, lng: -90.2387 } // Approx.
-  },
-  { 
-    id: "ofallon-park", 
-    organization: "O'Fallon Park Rec Complex (YMCA)", 
-    address: "4343 W. Florissant Ave., St. Louis, MO 63115", 
-    description: "Hosting the People's Response Hub, providing food and supplies.", 
-    notes: "Dinner served daily from 5–7 p.m.; volunteer opportunities available.", 
-    type: "Food", 
-    coordinates: { lat: 38.6773, lng: -90.2274 } // Approx.
-  },
-  { 
-    id: "12th-park", 
-    organization: "12th and Park Recreation Center", 
-    address: "1410 S. Tucker Blvd., St. Louis, MO 63104", 
-    description: "American Red Cross shelter offering overnight accommodations.", 
-    notes: "Call 1-800-Red-Cross for assistance.", 
-    type: "Shelter", 
-    coordinates: { lat: 38.6149, lng: -90.2049 } // Approx.
-  },
-  { 
-    id: "friendly-temple", 
-    organization: "Friendly Temple Outreach Center", 
-    address: "6356 Dr. Martin Luther King Dr., St. Louis, MO 63133", 
-    description: "American Red Cross shelter providing overnight stays.", 
-    notes: "Call 1-800-Red-Cross for assistance.", 
-    type: "Shelter", 
-    coordinates: { lat: 38.6675, lng: -90.2701 } // Approx.
-  },
-  { 
-    id: "refresh-church", 
-    organization: "Refresh Community Church", 
-    address: "829 N. Hanley Rd., St. Louis, MO 63130", 
-    description: "American Red Cross shelter available for overnight shelter.", 
-    notes: "Call 1-800-Red-Cross for assistance.", 
-    type: "Shelter", 
-    coordinates: { lat: 38.6790, lng: -90.3298 } // Approx.
-  },
-  { 
-    id: "new-horizons", 
-    organization: "New Horizons United Methodist Church", 
-    address: "4234 Washington Blvd., St. Louis, MO 63108", 
-    description: "Distribution site for non-perishable foods, laundry, and shower services.", 
-    notes: "Open Wednesday from 9 a.m. to 5 p.m.", 
+    id: "fema-sumner", 
+    organization: "FEMA Disaster Recovery Center - Sumner High", 
+    address: "4248 Cottage Ave., St. Louis, MO 63113", 
+    description: "FEMA assistance applications and support services. Apply by August 11, 2025. SBA and FEMA staff available to help with applications.", 
+    notes: "Open Monday-Saturday 8am-7pm, Sunday 8am-6pm", 
     type: "Services", 
-    coordinates: { lat: 38.6374, lng: -90.2466 } // Approx.
+    coordinates: { lat: 38.6542, lng: -90.2387 }
   },
   { 
-    id: "carondelet-park", 
-    organization: "Carondelet Park Rec Complex", 
-    address: "930 Holly Hills Ave., St. Louis, MO 63111", 
-    description: "Offers cooling center, charging stations, and shower facilities.", 
-    notes: "Open Mon–Fri: 5 a.m.–10 p.m.; Sat–Sun: 7 a.m.–6 p.m.", 
+    id: "fema-urban-league", 
+    organization: "FEMA Disaster Recovery Center - Urban League", 
+    address: "4401 Natural Bridge Ave., St. Louis, MO 63115", 
+    description: "FEMA assistance applications and support services. Apply by August 11, 2025. SBA and FEMA staff available to help with applications.", 
+    notes: "Open Monday-Saturday 8am-8pm, Sunday 8am-6pm", 
     type: "Services", 
-    coordinates: { lat: 38.5604, lng: -90.2650 } // Approx.
-  },
-  { 
-    id: "mid-county-ymca", 
-    organization: "Mid-County Family YMCA", 
-    address: "1900 Urban Dr., Brentwood, MO 63144", 
-    description: "Provides cooling center, charging stations, and shower facilities.", 
-    notes: "Open Mon–Thurs: 5:15 a.m.–9 p.m.; Sat: 7 a.m.–4 p.m.; Sun: 8 a.m.–4 p.m.", 
-    type: "Services", 
-    coordinates: { lat: 38.6311, lng: -90.3895 } // Approx.
-  },
-  { 
-    id: "peter-paul",
-    organization: "Peter & Paul Community Services",
-    address: "2612 Wyoming Street, St. Louis, MO 63118",
-    description: "New overnight shelter location as of 5/24",
-    type: "Shelter",
-    coordinates: { lat: 38.5992, lng: -90.2226 } // Approx.
-  },
-  { 
-    id: "slpl-locations",
-    organization: "St. Louis Public Libraries",
-    description: "13 library locations offering rest, cooling, and recharging",
-    type: "Services",
-    notes: "Cabanne and Julia Davis locations temporarily closed for damage assessment",
-    url: "https://slpl.bibliocommons.com"
-  },
-  // New locations from live document
-  {
-    id: "ferguson-nazarene",
-    organization: "Ferguson Church of the Nazarene",
-    address: "1309 N. Elizabeth Ave, Ferguson, MO 63135",
-    description: "American Red Cross shelter providing overnight stays",
-    notes: "Relocated from 12th and Park Recreation Center",
-    type: "Shelter",
-    coordinates: { lat: 38.7441, lng: -90.2751 }
-  },
-  {
-    id: "south-city-ymca",
-    organization: "South City YMCA",
-    address: "3150 Sublette Ave, St. Louis, MO 63139",
-    description: "Emergency shelter location",
-    type: "Shelter",
-    coordinates: { lat: 38.6066, lng: -90.2789 }
-  },
-  {
-    id: "saint-paul-ame",
-    organization: "Saint Paul AME Church",
-    address: "1260 Hamilton Street, St. Louis, MO 63112",
-    description: "Emergency shelter location",
-    type: "Shelter",
-    coordinates: { lat: 38.6598, lng: -90.2854 }
-  },
-  {
-    id: "miner-convention",
-    organization: "City of Miner Convention Center",
-    address: "2610 E Malone Ave., Sikeston, MO 63801",
-    description: "Emergency shelter location",
-    type: "Shelter",
-    coordinates: { lat: 36.8761, lng: -89.5440 }
-  },
-  {
-    id: "healthcare-taskforce",
-    organization: "The Healthcare Taskforce",
-    address: "4447 Natural Bridge",
-    description: "Blood pressure and sugar checks, wellness checks daily available",
-    notes: "Open 10am-5pm, contact (314)-690-3638 for medical assistance",
-    type: "Medical",
     coordinates: { lat: 38.6667, lng: -90.2407 }
   },
   {
-    id: "stl-rx-outreach",
-    organization: "STL Rx Outreach",
-    description: "90 Day Supply Relief Fund for lost prescription medication",
-    contact: { phone: "314-222-0472" },
+    id: "peoples-health-centers",
+    organization: "People's Health Centers",
+    description: "Health aid and resources for impacted residents",
+    notes: "Open daily 9am-4pm",
     type: "Medical",
-    notes: "Call for assistance if you lost prescription medication due to the storm"
+    locations: [
+      "4447 Natural Bridge Ave., St. Louis, MO 63115",
+      "Delmar and Union boulevards, St. Louis, MO 63108",
+      "West Florissant and Harris avenues, St. Louis, MO 63115",
+      "5701 Delmar Blvd., St. Louis, MO 63112"
+    ]
   },
   {
-    id: "haven-recovery",
-    organization: "Haven Recovery",
-    description: "Wound Care/Outreach Van and mobile shower pods",
+    id: "behavioral-health",
+    organization: "Behavioral Health Response",
+    description: "24/7 crisis support and mental health resources",
     contact: {
-      name: "Callan Montgomery",
-      phone: "314-930-9384",
-      email: "callan@havenrecoverystl.com"
+      phone: "988 or 314-819-8811",
+      text: "31658"
+    },
+    notes: "For disaster distress, call 1-800-985-5990",
+    type: "Medical"
+  },
+  {
+    id: "rx-outreach",
+    organization: "Rx Outreach Tornado Relief Fund",
+    description: "Medication assistance for tornado-affected residents",
+    contact: {
+      phone: "314-222-0472"
     },
     type: "Medical"
   },
   {
-    id: "4theville-hub",
-    organization: "4theVille Hub",
-    address: "4144 MLK Dr",
-    description: "Open 10am-8pm daily with showers open until 2pm. Operations extended to May 31st. Offers hot meals from 11-12pm.",
-    type: "Hub",
+    id: "greater-health",
+    organization: "GreaterHealth Pharmacy & Wellness",
+    description: "Urgent prescription refills for Medicaid patients with free delivery",
     contact: {
-      email: "amber@inexcelsislove.org",
-      phone: "314-732-2156"
+      phone: "314-200-5313"
     },
-    hours: "10am-8pm daily",
-    coordinates: { lat: 38.6542, lng: -90.2387 }
+    type: "Medical"
   },
   {
-    id: "deaconess-center",
-    organization: "Deaconess Center",
-    address: "1000 N Vandeventer Ave",
-    description: "Access Wi-fi, charge electronics, personal hygiene needs, snacks and water.",
-    hours: "9am-6pm",
+    id: "housing-fairs",
+    organization: "Home Again: ReHousing Recovery Fair",
+    description: "Connect with housing providers for available housing solutions",
+    notes: "Upcoming fairs: July 10 and August 5",
     type: "Services",
-    coordinates: { lat: 38.6356, lng: -90.2371 }
+    url: "https://www.stlouis-mo.gov/tornado"
   },
   {
-    id: "rx-outreach",
-    organization: "STL Rx Outreach",
-    description: "90 Day Supply Relief Fund for those who lost prescription medication due to the storm",
+    id: "ameren-assistance",
+    organization: "Ameren Missouri Customer Service",
+    description: "Assistance with service restoration, payment arrangements through July 2025",
     contact: {
-      phone: "314-222-0472"
+      phone: "800-552-7583"
     },
-    type: "Medical",
-    coordinates: { lat: 38.6356, lng: -90.2371 }
+    notes: "Deposits waived for new service through August 2025",
+    type: "Services"
   },
   {
     id: "metro-pickup",
