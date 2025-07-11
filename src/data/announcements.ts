@@ -2,6 +2,59 @@ import type { Announcement } from '@/types';
 
 export const announcements: Announcement[] = [
   {
+    id: 'city-recovery-programs',
+    title: 'Four New City Recovery Programs Launched',
+    content: `The City of St. Louis has launched four new recovery programs:
+
+1. Emergency Stabilization Program: Free immediate weatherization including roof tarping, boarding windows/doors, and hazardous tree removal. Priority for seniors and uninsured households.
+
+2. Electricity Reconnection Program: Free electrical assessments and repairs up to $4,000 per household for homes with yellow safety placards.
+
+3. Ask an Architect: Free consultations with licensed architects at City Hall (Room 425) on Mondays and Wednesdays, 12-3 PM. Open to homeowners and renters.
+
+4. Contractor Registry: New system to verify licensed contractors with QR-coded placards. Verify contractors at www.stlcitypermits.com/stlrecoversregistry.
+
+For assistance, call 311 or submit a request through the Citizens' Service Bureau.`,
+    date: '2025-07-07',
+    organization: 'City of St. Louis',
+    url: 'https://www.stlouis-mo.gov/tornado',
+    postedBy: 'Mayor Cara Spencer'
+  },
+  {
+    id: 'fema-center-updates',
+    title: 'FEMA Recovery Center Updates',
+    content: `The Union Tabernacle M.B. Church Recovery Center (626 N. Newstead Ave) will be temporarily closed July 6-13, reopening July 14.
+
+Four other Disaster Recovery Centers remain open to assist residents:
+
+1. St. Louis County Library Mid-County Branch (7821 Maryland Ave, Clayton)
+   Mon-Thu: 8am-7pm, Fri-Sat: 8am-5pm, Sun: Closed
+
+2. St. Louis County Library Prairie Commons Branch (915 Utz Ln, Hazelwood)
+   Mon-Thu: 8am-7pm, Fri-Sat: 8am-5pm, Sun: Closed
+
+3. Urban League Entrepreneurship Center (4401 Natural Bridge Ave)
+   Mon-Sat: 8am-8pm, Sun: 8am-6pm
+
+4. Sumner High School Parking Lot (4248 Cottage Ave)
+   Mon-Sat: 8am-7pm, Sun: 8am-6pm
+
+FEMA and SBA representatives are available at all locations to help with disaster assistance applications. The deadline to apply for FEMA assistance is August 11, 2025.`,
+    date: '2025-07-07',
+    organization: 'FEMA',
+    url: 'https://www.fema.gov/disaster/4763',
+    postedBy: 'FEMA Coordination Team'
+  },
+  {
+    id: 'urban-league-meal-distribution-july',
+    title: 'Urban League Providing 1,000 Meals for Tornado Victims',
+    content: 'The Urban League of Metro St. Louis & partners are providing 1,000 meals and desserts this Saturday from 12-3 at our headquarters for victims of the tornado. For donations, visit ulstl.com/donatenow or bring items to headquarters at 1408 North Kingshighway between 9-5 any workday. For those who cannot get to the location for help, call 314-615-3600 and ask for the Federation of Block Units for home delivery of items.',
+    date: '2025-07-10',
+    url: 'ulstl.com/donatenow',
+    organization: 'Urban League of Metropolitan St. Louis',
+    postedBy: 'Michael McMillan'
+  },
+  {
     id: 'sldc-assessment',
     title: 'SLDC Damage Assessment',
     content: 'SLDC is helping the city assess the extent of damage to commercial buildings in the tornado-impacted areas. If you own or operate a business that was damaged, please contact SLDC.',

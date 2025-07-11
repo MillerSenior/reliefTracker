@@ -1,13 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { announcements } from '@/data/announcements';
 import { ExternalLink, Info } from 'lucide-react';
 import { useMemo } from 'react';
 
 export function AnnouncementsPanel() {
-  const lastUpdated = "June 30, 2025";
+  const lastUpdated = "July 10, 2025";
   const cutoff = new Date("2025-06-01");
 
   // Sort announcements by date descending (newest first)
@@ -73,7 +72,7 @@ export function AnnouncementsPanel() {
                             {announcement.postedBy && (
                               <TooltipProvider>
                                 <Tooltip>
-                                  <TooltipTrigger asChild>
+                                  <TooltipTrigger>
                                     <span className="ml-1 cursor-pointer"><Info className="h-4 w-4 flex-shrink-0" /></span>
                                   </TooltipTrigger>
                                   <TooltipContent>
